@@ -1,0 +1,97 @@
+<%= form_with(model: game_player, local: true) do |form| %>
+  <% if game_player.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(game_player.errors.count, "error") %> prohibited this game_player from being saved:</h2>
+
+      <ul>
+      <% game_player.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :is_accused %>
+    <%= form.check_box :is_accused %>
+  </div>
+
+  <div class="field">
+    <%= form.label :winner %>
+    <%= form.check_box :winner %>
+  </div>
+
+  <div class="field">
+    <%= form.label :evidence %>
+    <%= form.text_area :evidence %>
+  </div>
+
+  <div class="field">
+    <%= form.label :clan %>
+    <%= form.text_field :clan %>
+  </div>
+
+  <div class="field">
+    <%= form.label :race %>
+    <%= form.text_field :race %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mmr %>
+    <%= form.number_field :mmr %>
+  </div>
+
+  <div class="field">
+    <%= form.label :division %>
+    <%= form.text_field :division %>
+  </div>
+
+  <div class="field">
+    <%= form.label :server_rank %>
+    <%= form.number_field :server_rank %>
+  </div>
+
+  <div class="field">
+    <%= form.label :global_rank %>
+    <%= form.number_field :global_rank %>
+  </div>
+
+  <div class="field">
+    <%= form.label :apm %>
+    <%= form.number_field :apm %>
+  </div>
+
+  <div class="field">
+    <%= form.label :team %>
+    <%= form.number_field :team %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color %>
+    <%= form.text_field :color %>
+  </div>
+
+  <div class="field">
+    <%= form.label :guilty_count %>
+    <%= form.number_field :guilty_count %>
+  </div>
+
+  <div class="field">
+    <%= form.label :innocent_count %>
+    <%= form.number_field :innocent_count %>
+  </div>
+
+  <div class="field">
+    <%= form.label :game_id %>
+    <%= form.text_field :game_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :player_id %>
+    <%= form.text_field :player_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

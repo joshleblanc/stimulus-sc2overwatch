@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bnet_url: MyString
+  name: MyString
+  server: MyString
+  bnet_id: 1
+
+two:
+  bnet_url: MyString
+  name: MyString
+  server: MyString
+  bnet_id: 1

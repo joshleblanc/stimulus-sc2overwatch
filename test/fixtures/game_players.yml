@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  is_accused: false
+  winner: false
+  evidence: MyText
+  clan: MyString
+  race: MyString
+  mmr: 1
+  division: MyString
+  server_rank: 1
+  global_rank: 1
+  apm: 1
+  team: 1
+  color: MyString
+  guilty_count: 1
+  innocent_count: 1
+  game: one
+  player: one
+
+two:
+  is_accused: false
+  winner: false
+  evidence: MyText
+  clan: MyString
+  race: MyString
+  mmr: 1
+  division: MyString
+  server_rank: 1
+  global_rank: 1
+  apm: 1
+  team: 1
+  color: MyString
+  guilty_count: 1
+  innocent_count: 1
+  game: two
+  player: two
