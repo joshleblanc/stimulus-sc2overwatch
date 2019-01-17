@@ -37,6 +37,7 @@
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v5.2.2, ruby-2.4.5-p335) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="addressable (v2.5.2, ruby-2.4.5-p335) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="arel (v9.0.0, ruby-2.4.5-p335) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="autoprefixer-rails (v9.4.5, ruby-2.4.5-p335) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bindex (v0.5.0, ruby-2.4.5-p335) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bootsnap (v1.3.2, ruby-2.4.5-p335) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.3, ruby-2.4.5-p335) [gem]" level="application" />
@@ -50,7 +51,7 @@
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.1.4, ruby-2.4.5-p335) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.4, ruby-2.4.5-p335) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="domain_name (v0.5.20180417, ruby-2.4.5-p335) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="duktape (v2.0.1.0, ruby-2.4.5-p335) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="dropzonejs-rails (v0.8.4, ruby-2.4.5-p335) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.8.0, ruby-2.4.5-p335) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="execjs (v2.7.0, ruby-2.4.5-p335) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ffi (v1.10.0, ruby-2.4.5-p335) [gem]" level="application" />
@@ -61,6 +62,7 @@
     <orderEntry type="library" scope="PROVIDED" name="loofah (v2.2.3, ruby-2.4.5-p335) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.7.1, ruby-2.4.5-p335) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="marcel (v0.3.3, ruby-2.4.5-p335) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="materialize-sass (v1.0.0, ruby-2.4.5-p335) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="method_source (v0.9.2, ruby-2.4.5-p335) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mime-types (v3.2.2, ruby-2.4.5-p335) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mime-types-data (v3.2018.0812, ruby-2.4.5-p335) [gem]" level="application" />

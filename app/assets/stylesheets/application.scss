@@ -1,0 +1,23 @@
+@import "materialize";
+
+.open-upload-modal-button {
+  position: fixed;
+  bottom: 32px;
+  right: 8px;
+}
+
+.upload-input {
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  display: flex;
+  text-align: center;
+}
+
+.upload-state.upload-state--current {
+  display: block
+}
+
+.upload-state {
+  display: none
+}
