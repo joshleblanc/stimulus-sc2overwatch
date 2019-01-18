@@ -28,13 +28,4 @@ export default class extends Controller {
         this.dialog.open();
         console.log("Open modal");
     }
-
-    get modal() {
-        // return M.Modal.getInstance(this.modalTarget);
-    }
-
-    get collapse() {
-        // return M.Collapsible.getInstance(this.collapseTarget);
-    }
-
 }
