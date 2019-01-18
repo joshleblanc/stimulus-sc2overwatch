@@ -1,6 +1,5 @@
 import { Controller } from 'stimulus';
-import '@material/fab/mdc-fab';
-import { MDCRipple } from '@material/ripple/index';
+import { dialog } from 'material-components-web/index';
 
 export default class extends Controller {
 
@@ -9,9 +8,7 @@ export default class extends Controller {
     connect() {
     }
     initialize() {
-        MDCRipple.attachTo(this.openButtonTarget);
-        console.log(this.openButtonTarget);
-
+        this.dialog = new dialog.MDCDialog(this.modalTarget);
         this.dropzone = new Dropzone(this.dropzoneTarget, {
             previewTemplate: "<div></div>"
         });
@@ -29,6 +26,7 @@ export default class extends Controller {
 
     openModal() {
         //this.modal.open();
+        this.dialog.open();
         console.log("Open modal");
     }
 

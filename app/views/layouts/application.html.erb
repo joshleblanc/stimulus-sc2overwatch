@@ -14,13 +14,13 @@
 
   <body>
     <%= render "shared/navbar" %>
-    <div class="container">
+    <div class="mdc-layout-grid mdc-top-app-bar--fixed-adjust">
       <%= yield %>
     </div>
     <%= render "upload_modal/upload_modal" %>
 
   <script>
-    window.mdc.autoInit();
+    window.autoInit();
   </script>
   </body>
 </html>

@@ -1,49 +1,69 @@
 <div data-controller="upload-modal">
-  <div class="modal" data-target="upload-modal.modal">
-    <div class="modal-content">
-      <h5>Report a player</h5>
-      <ul class="collapsible" data-target="upload-modal.collapse">
-        <li class="active">
-          <div class="collapsible-header">Upload a replay</div>
-          <div class="collapsible-body">
-            <%= form_tag({ controller: :replay, action: :create }, class: 'upload-input', 'data-target': 'upload-modal.dropzone', 'data-action': 'success->upload-modal#uploadFinished') do %>
-              <div class="upload-state upload-state--current" data-target="upload-modal.placeholder">
-                Click to select a file, or drop one here.
-              </div>
-              <div class="upload-state" data-target="upload-modal.loader">
-                <div class="preloader-wrapper small active">
-                  <div class="spinner-layer spinner-green-only">
-                    <div class="circle-clipper left">
-                      <div class="circle"></div>
-                    </div><div class="gap-patch">
-                    <div class="circle"></div>
-                  </div><div class="circle-clipper right">
-                    <div class="circle"></div>
-                  </div>
-                  </div>
-                </div>
 
+  <div class="mdc-dialog"
+       aria-modal="true"
+       aria-labelledby="upload-modal-title"
+       aria-describedby="upload-modal-content"
+       data-target="upload-modal.modal">
+    <div class="mdc-dialog__container">
+      <div class="mdc-dialog__surface">
+        <h2 class="mdc-dialog__title" id="upload-modal-title">Upload a replay</h2>
+        <div class="mdc-dialog__content" id="upload-modal-content">
+          <%= form_tag({ controller: :replay, action: :create }, class: 'upload-input', 'data-target': 'upload-modal.dropzone', 'data-action': 'success->upload-modal#uploadFinished') do %>
+            <div class="upload-state upload-state--current" data-target="upload-modal.placeholder">
+              Click to select a file, or drop one here.
+            </div>
+            <div class="upload-state" data-target="upload-modal.loader">
+              <div class="preloader-wrapper small active">
+                <div class="spinner-layer spinner-green-only">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+                </div>
               </div>
-            <% end %>
-          </div>
-        </li>
-        <li>
-          <div class="collapsible-header">Enter Details</div>
-          <div class="collapsible-body">
-            test 2
-          </div>
-        </li>
-      </ul>
+
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</a>
-    </div>
+    <div class="mdc-dialog__scrim"></div>
   </div>
   <button class="open-upload-modal-button mdc-fab"
           data-target="upload-modal.openButton"
-          data-action="upload-modal#openModal"
+          data-action="click->upload-modal#openModal"
           data-mdc-auto-init="MDCRipple"
           aria-label="Upload">
     <span class="mdc-fab__icon material-icons">add</span>
   </button>
 </div>
+
+<!--<div data-controller="upload-modal">-->
+<!--  <div class="modal" data-target="upload-modal.modal">-->
+<!--    <div class="modal-content">-->
+<!--      <h5>Report a player</h5>-->
+<!--      <ul class="collapsible" data-target="upload-modal.collapse">-->
+<!--        <li class="active">-->
+<!--          <div class="collapsible-header">Upload a replay</div>-->
+<!--          <div class="collapsible-body">-->
+
+<!--          </div>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <div class="collapsible-header">Enter Details</div>-->
+<!--          <div class="collapsible-body">-->
+<!--            test 2-->
+<!--          </div>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--    <div class="modal-footer">-->
+<!--      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</a>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--</div>-->

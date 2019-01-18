@@ -10,9 +10,9 @@
 console.log('Hello World from Webpacker')
 import { Application } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
-import mdc from 'material-components-web';
-window.mdc = mdc;
-console.log(window);
+import "material-components-web/material-components-web";
+import { autoInit } from "material-components-web/index";
+window.autoInit = autoInit;
 const application = Application.start()
 const context = require.context("controllers", true, /.js$/)
 application.load(definitionsFromContext(context))
