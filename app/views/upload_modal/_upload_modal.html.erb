@@ -1,7 +1,7 @@
 <div data-controller="upload-modal">
   <div class="modal" data-target="upload-modal.modal">
     <div class="modal-content">
-      <h4>Report a player</h4>
+      <h5>Report a player</h5>
       <ul class="collapsible" data-target="upload-modal.collapse">
         <li class="active">
           <div class="collapsible-header">Upload a replay</div>
@@ -39,7 +39,10 @@
       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</a>
     </div>
   </div>
-  <a class="btn-floating btn-large waves-effect waves-light red open-upload-modal-button"
+  <button class="mdc-fab open-upload-modal-button" aria-label="Upload">
+    <span class="mdc-fab__icon material-icons">add</span>
+  </button>
+  <a class="btn-floating btn-large waves-effect waves-light primary-color open-upload-modal-button"
      data-action="click->upload-modal#openModal"
   >
     <i class="material-icons">add</i><

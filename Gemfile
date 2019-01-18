@@ -55,5 +55,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'webpacker', '~> 3.5'
 gem 'sc2replaystats', git: 'https://github.com/HorizonShadow/ruby-sc2replaystats.git'
-gem 'materialize-sass', '~> 1.0.0'
 gem 'dropzonejs-rails'

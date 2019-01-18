@@ -1,4 +1,21 @@
-@import "materialize";
+@import '@material/fab/mdc-fab';
+
+
+.modal h5 {
+  font-weight: 500;
+}
+
+.collapsible {
+  box-shadow: none;
+}
+
+.collapsible-header {
+  font-weight: 500;
+}
+
+.collapsible-body {
+  font-weight: 400;
+}
 
 .open-upload-modal-button {
   position: fixed;
@@ -20,4 +37,8 @@
 
 .upload-state {
   display: none
+}
+
+nav .site-title {
+  padding: 0 15px
 }
