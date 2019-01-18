@@ -39,12 +39,11 @@
       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</a>
     </div>
   </div>
-  <button class="mdc-fab open-upload-modal-button" aria-label="Upload">
+  <button class="open-upload-modal-button mdc-fab"
+          data-target="upload-modal.openButton"
+          data-action="upload-modal#openModal"
+          data-mdc-auto-init="MDCRipple"
+          aria-label="Upload">
     <span class="mdc-fab__icon material-icons">add</span>
   </button>
-  <a class="btn-floating btn-large waves-effect waves-light primary-color open-upload-modal-button"
-     data-action="click->upload-modal#openModal"
-  >
-    <i class="material-icons">add</i><
-  </a>
 </div>

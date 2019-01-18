@@ -1,4 +1,3 @@
-@import '@material/fab/mdc-fab';
 
 
 .modal h5 {
@@ -17,7 +16,7 @@
   font-weight: 400;
 }
 
-.open-upload-modal-button {
+button.open-upload-modal-button {
   position: fixed;
   bottom: 32px;
   right: 8px;

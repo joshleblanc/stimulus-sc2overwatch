@@ -1,12 +1,17 @@
 import { Controller } from 'stimulus';
+import '@material/fab/mdc-fab';
+import { MDCRipple } from '@material/ripple/index';
 
 export default class extends Controller {
 
-    static targets = [ "modal", "collapse", "dropzone", "placeholder", "loader" ];
+    static targets = [ "modal", "collapse", "dropzone", "placeholder", "loader", "openButton" ];
 
+    connect() {
+    }
     initialize() {
-        M.Modal.init(this.modalTarget);
-        M.Collapsible.init(this.collapseTarget, { accordion: true });
+        MDCRipple.attachTo(this.openButtonTarget);
+        console.log(this.openButtonTarget);
+
         this.dropzone = new Dropzone(this.dropzoneTarget, {
             previewTemplate: "<div></div>"
         });
@@ -23,16 +28,16 @@ export default class extends Controller {
     }
 
     openModal() {
-        this.modal.open();
+        //this.modal.open();
         console.log("Open modal");
     }
 
     get modal() {
-        return M.Modal.getInstance(this.modalTarget);
+        // return M.Modal.getInstance(this.modalTarget);
     }
 
     get collapse() {
-        return M.Collapsible.getInstance(this.collapseTarget);
+        // return M.Collapsible.getInstance(this.collapseTarget);
     }
 
 }

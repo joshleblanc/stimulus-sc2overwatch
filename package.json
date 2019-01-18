@@ -2,8 +2,11 @@
   "name": "stimulus-sc2overwatch",
   "private": true,
   "dependencies": {
+    "@material/auto-init": "latest",
     "@rails/webpacker": "3.5",
+    "autoprefixer": "^9.4.5",
     "material-components-web": "^0.43.0",
+    "resolve-url-loader": "^3.0.0",
     "stimulus": "^1.1.1"
   },
   "devDependencies": {
