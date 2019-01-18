@@ -9,26 +9,33 @@
       <div class="mdc-dialog__surface">
         <h2 class="mdc-dialog__title" id="upload-modal-title">Upload a replay</h2>
         <div class="mdc-dialog__content" id="upload-modal-content">
-          <%= form_tag({ controller: :replay, action: :create }, class: 'upload-input', 'data-target': 'upload-modal.dropzone', 'data-action': 'success->upload-modal#uploadFinished') do %>
-            <div class="upload-state upload-state--current" data-target="upload-modal.placeholder">
-              Click to select a file, or drop one here.
-            </div>
-            <div class="upload-state" data-target="upload-modal.loader">
-              <div class="preloader-wrapper small active">
-                <div class="spinner-layer spinner-green-only">
-                  <div class="circle-clipper left">
-                    <div class="circle"></div>
-                  </div><div class="gap-patch">
-                  <div class="circle"></div>
-                </div><div class="circle-clipper right">
-                  <div class="circle"></div>
+          <div class="upload-state upload-state--current" data-target="upload-modal.placeholder">
+            <%= form_tag({ controller: :replay, action: :create }, class: 'upload-input', 'data-target': 'upload-modal.dropzone', 'data-action': 'success->upload-modal#uploadFinished') do %>
+                Click to select a file, or drop one here.
+            <% end %>
+          </div>
+          <div class="upload-state" data-target="upload-modal.loader">
+              <div role="progressbar" class="mdc-linear-progress mdc-linear-progress--indeterminate">
+                <div class="mdc-linear-progress__buffering-dots"></div>
+                <div class="mdc-linear-progress__buffer"></div>
+                <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+                  <span class="mdc-linear-progress__bar-inner"></span>
                 </div>
+                <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+                  <span class="mdc-linear-progress__bar-inner"></span>
                 </div>
               </div>
-
             </div>
-          <% end %>
+
         </div>
+        <footer class="mdc-dialog__actions">
+          <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="cancel">
+            <span class="mdc-button__label">Cancel</span>
+          </button>
+          <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="submit" disabled>
+            <span class="mdc-button__label">Submit</span>
+          </button>
+        </footer>
       </div>
     </div>
     <div class="mdc-dialog__scrim"></div>
