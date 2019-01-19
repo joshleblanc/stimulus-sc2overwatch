@@ -32,13 +32,12 @@ button.open-upload-modal-button {
   text-align: center;
 }
 
-.upload-state.upload-state--current {
-  display: block
-}
-
-.upload-state {
+.upload-step {
   display: none;
   width: 100%;
+  &.upload-step--current {
+    display: block
+  }
 }
 
 nav .site-title {

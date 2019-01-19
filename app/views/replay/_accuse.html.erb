@@ -1,0 +1,3 @@
+<%= form_tag controller: :game_players, action: :_accuse do %>
+  <% select_tag "players", options_from_collection_for_select(@players, "id", "name") %>
+<% end %>
