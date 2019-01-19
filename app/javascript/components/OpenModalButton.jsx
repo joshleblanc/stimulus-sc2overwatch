@@ -14,13 +14,12 @@ const styles = theme => ({
 class OpenModalButton extends React.Component {
 
     render() {
-        const { classes } = this.props;
+        const { classes, onClick } = this.props;
         return(
           <Fab
             color={'primary'}
             className={classes.fab}
-            data-target={"upload-modal.openButton"}
-            data-action={"upload-modal#openModal"}
+            onClick={onClick}
           >
               <AddIcon />
           </Fab>

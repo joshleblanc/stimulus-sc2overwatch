@@ -13,13 +13,14 @@ export default class extends Controller {
     readonly accusationFormTarget!: HTMLFormElement;
     readonly playerFieldTarget!: HTMLInputElement;
     readonly evidenceFieldTarget!: HTMLTextAreaElement;
+    readonly hasSubmitButtonTarget!: Boolean;
     dialog: dialog.MDCDialog;
     dropzone: Dropzone;
     playerSelect: select.MDCSelect;
     evidence: textField.MDCTextField;
 
 
-    initialize() {
+    connect() {
         this.showCurrentStep();
         this.setSubmitButtonState();
         this.dialog = new dialog.MDCDialog(this.modalTarget);
@@ -46,7 +47,10 @@ export default class extends Controller {
     setSubmitButtonState() {
         const playerGood = this.playerSelect && this.playerSelect.value.length > 0;
         const evidenceGood = this.evidence && this.evidence.value.length >0;
-        this.submitButtonTarget.disabled = !(playerGood && evidenceGood);
+        if(this.hasSubmitButtonTarget) {
+            this.submitButtonTarget.disabled = !(playerGood && evidenceGood);
+
+        }
     }
 
     showCurrentStep() {
