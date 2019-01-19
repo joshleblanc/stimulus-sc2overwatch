@@ -1,8 +1,5 @@
 <div class="upload-step" data-target="upload-modal.step">
-  <%= form_tag({ controller: :replay, action: :create }, class: 'upload-input', 'data-target': 'upload-modal.dropzone', 'data-action': 'success->upload-modal#uploadFinished') do %>
-    <%= file_field_tag("replay", { hidden: true , "data-target": "upload-modal.replayInput", "data-action": "change->upload-modal#replaySelected" }) %>
-    <button class="mdc-button" type="button" data-action="click->upload-modal#uploadClicked">
-      <span class="mdc-button__label">Select a Replay</span>
-    </button>
+  <%= form_tag({ controller: :replay, action: :create }, class: 'upload-input', 'data-target': 'upload-modal.dropzone') do %>
+    Click to select a file, or drop one here.
   <% end %>
 </div>

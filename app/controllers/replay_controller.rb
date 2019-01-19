@@ -31,7 +31,7 @@ class ReplayController < ApplicationController
         end
       end
 
-      game = Game.where(id: replay_info['replay_id']).first_or_create(
+      @game = Game.where(id: replay_info['replay_id']).first_or_create(
           id: replay_info['replay_id'],
           map: replay_info['map']['map_name'],
           date: replay_info['replay_date'],
@@ -53,9 +53,9 @@ class ReplayController < ApplicationController
         if data['player']['players_name'] != player.name
           player.update(name: data['players_name'])
         end
-        GamePlayer.where(game: game, player: player).first_or_create(
+        GamePlayer.where(game: @game, player: player).first_or_create(
             player: player,
-            game: game,
+            game: @game,
             winner: data['winner'] == 1,
             clan: data['clan'],
             race: data['race'],
@@ -72,7 +72,7 @@ class ReplayController < ApplicationController
       break
     end
     if result
-      render json: result
+      render partial: 'upload_modal/accusation_form'
     else
       render nothing: true, status: 500
     end
