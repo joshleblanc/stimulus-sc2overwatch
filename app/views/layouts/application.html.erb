@@ -15,19 +15,16 @@
   <body class="mdc-typography">
     <div id="app">
       <div class="statusbar"></div>
-<!--      <div class="view view-main">-->
-        <div class="page">
-          <%= render "shared/navbar" %>
-          <div class="page-content">
+      <div class="page">
+        <%= render "shared/navbar" %>
+        <div class="page-content">
             <%= yield %>
-
-          </div>
         </div>
-
       </div>
-      <%= render "upload_modal/upload_modal" %>
     </div>
+    <%= render "upload_modal/upload_modal" %>
   </body>
+
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'%>
 
 </html>

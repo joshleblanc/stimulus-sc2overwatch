@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'replay/upload'
+  get 'replay/accuse/:game_id', to: "replay#accuse"
   post 'replay/create'
   resources :voters
   resources :game_players

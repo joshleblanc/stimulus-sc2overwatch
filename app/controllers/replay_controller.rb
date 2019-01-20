@@ -1,8 +1,9 @@
 class ReplayController < ApplicationController
   protect_from_forgery with: :null_session
 
-  def upload
-
+  def accuse
+    @game = Game.find(params[:game_id])
+    render :accusation_form
   end
 
   def create
@@ -72,7 +73,7 @@ class ReplayController < ApplicationController
       break
     end
     if result
-      render partial: 'upload_modal/accusation_form'
+      redirect_to action: :accuse, game_id: @game.id
     else
       render nothing: true, status: 500
     end

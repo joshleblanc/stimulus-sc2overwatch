@@ -17,6 +17,8 @@ application.load(definitionsFromContext(context));
 import Framework7 from 'framework7';
 import 'framework7/css/framework7.min.css';
 import Dialog from 'framework7/components/dialog/dialog';
-Framework7.use([Dialog]);
+import Input from 'framework7/components/input/input';
+import List from 'framework7/components/list/list';
+Framework7.use([Dialog, Input, List]);
 
 window.app = new Framework7();
