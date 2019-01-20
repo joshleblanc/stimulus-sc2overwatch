@@ -7,18 +7,16 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-console.log('Hello World from Webpacker');
+console.log('Hello World from Webpacker')
 import { Application } from "stimulus"
-import { definitionsFromContext } from "stimulus/webpack-helpers";
-const application = Application.start();
-const context = require.context("controllers", true, /.js$/);
-application.load(definitionsFromContext(context));
-
-import Framework7 from 'framework7';
-import 'framework7/css/framework7.min.css';
-import Dialog from 'framework7/components/dialog/dialog';
-import Input from 'framework7/components/input/input';
-import List from 'framework7/components/list/list';
-Framework7.use([Dialog, Input, List]);
-
-window.app = new Framework7();
+import { definitionsFromContext } from "stimulus/webpack-helpers"
+import "material-components-web/material-components-web";
+import { autoInit } from "material-components-web/index";
+window.autoInit = autoInit;
+const application = Application.start()
+const context = require.context("controllers", true, /.ts$/)
+application.load(definitionsFromContext(context))
+// Support component names relative to this directory:
+var componentRequireContext = require.context("components", true)
+var ReactRailsUJS = require("react_ujs")
+ReactRailsUJS.useContext(componentRequireContext)
