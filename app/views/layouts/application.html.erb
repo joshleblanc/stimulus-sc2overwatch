@@ -24,11 +24,8 @@
     </div>
     <%= render "upload_modal/upload_modal" %>
 
-  <script>
-    window.autoInit();
-  </script>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'%>
   </body>
 
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'%>
 
 </html>

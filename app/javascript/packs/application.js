@@ -12,11 +12,7 @@ import { Application } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
 import "material-components-web/material-components-web";
 import { autoInit } from "material-components-web/index";
-window.autoInit = autoInit;
-const application = Application.start()
-const context = require.context("controllers", true, /.ts$/)
-application.load(definitionsFromContext(context))
-// Support component names relative to this directory:
-var componentRequireContext = require.context("components", true)
-var ReactRailsUJS = require("react_ujs")
-ReactRailsUJS.useContext(componentRequireContext)
+autoInit();
+const application = Application.start();
+const context = require.context("controllers", true, /.ts$/);
+application.load(definitionsFromContext(context));
