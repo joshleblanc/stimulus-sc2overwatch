@@ -1,47 +1,37 @@
 import { Controller } from 'stimulus';
-import { dialog, select, textField } from 'material-components-web/index';
 import Dropzone from 'dropzone';
 
 export default class extends Controller {
     static targets = [ "modal", "collapse", "dropzone", "openButton", "step", "replayInput", "uploadForm", "submitButton", "accusationForm", "playerField", "evidenceField" ];
-    readonly modalTarget!: Element;
-    readonly dropzoneTarget!: Element;
-    readonly stepTargets!: Array<Element>;
-    readonly replayInputTarget!: HTMLInputElement;
-    readonly uploadFormTarget!: HTMLFormElement;
-    readonly submitButtonTarget!: HTMLButtonElement;
-    readonly accusationFormTarget!: HTMLFormElement;
-    readonly playerFieldTarget!: HTMLInputElement;
-    readonly evidenceFieldTarget!: HTMLTextAreaElement;
-    readonly hasSubmitButtonTarget!: Boolean;
-    dialog: dialog.MDCDialog;
-    dropzone: Dropzone;
-    playerSelect: select.MDCSelect;
-    evidence: textField.MDCTextField;
 
-
+    initialize() {
+        this.dialog = window.app.dialog.create({
+            el: this.modalTarget,
+            backdrop: true
+        }).open();
+    }
     connect() {
         this.showCurrentStep();
         this.setSubmitButtonState();
-        this.dialog = new dialog.MDCDialog(this.modalTarget);
-        this.dropzone = new Dropzone(this.dropzoneTarget, {
-            previewTemplate: "<div></div>",
-            headers: {
-                "Accept": "text/html"
-            }
-        });
-        this.dropzone.on('addedfile', () => {
-            this.nextStep();
-        });
-        this.dropzone.on('success', (file, resp) => {
-            this.nextStep();
-            this.stepElement.innerHTML = resp;
-            this.playerSelect = new select.MDCSelect(this.playerFieldTarget);
-            this.evidence = new textField.MDCTextField(this.evidenceFieldTarget);
-            this.playerSelect.listen("MDCSelect:change", () => {
-                this.setSubmitButtonState();
-            });
-        });
+        //this.dialog = new dialog.MDCDialog(this.modalTarget);
+        // this.dropzone = new Dropzone(this.dropzoneTarget, {
+        //     previewTemplate: "<div></div>",
+        //     headers: {
+        //         "Accept": "text/html"
+        //     }
+        // });
+        // this.dropzone.on('addedfile', () => {
+        //     this.nextStep();
+        // });
+        // this.dropzone.on('success', (file, resp) => {
+        //     this.nextStep();
+        //     this.stepElement.innerHTML = resp;
+        //     this.playerSelect = new select.MDCSelect(this.playerFieldTarget);
+        //     this.evidence = new textField.MDCTextField(this.evidenceFieldTarget);
+        //     this.playerSelect.listen("MDCSelect:change", () => {
+        //         this.setSubmitButtonState();
+        //     });
+        // });
     }
 
     setSubmitButtonState() {
@@ -97,5 +87,6 @@ export default class extends Controller {
 
     openModal() {
         this.dialog.open();
+        console.log(this.dialog);
     }
 }
