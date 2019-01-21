@@ -1,6 +1,11 @@
 class GamePlayersController < ApplicationController
   before_action :set_game_player, only: [:show, :edit, :update, :destroy]
 
+  def recently_reported
+    @game_players = GamePlayer.where(is_accused: true)
+    render :index
+  end
+
   # GET /game_players
   # GET /game_players.json
   def index

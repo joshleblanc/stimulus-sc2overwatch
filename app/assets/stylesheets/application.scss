@@ -1,3 +1,5 @@
+@import "./*";
+
 body {
   margin: 0;
 }
@@ -5,6 +7,15 @@ body {
 .input {
   margin-bottom: 16px;
   width: 100% !important;
+}
+
+.drawer-offset {
+  margin-left: 256px;
+  margin-right: 0;
+}
+
+.text-align-center {
+  text-align: center;
 }
 
 .modal h5 {

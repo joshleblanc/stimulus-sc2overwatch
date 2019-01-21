@@ -1,0 +1,11 @@
+<aside class="mdc-drawer mdc-drawer--dismissible" data-target="nav.drawer" data-turbolinks-permanent>
+  <div class="mdc-drawer__content">
+    <nav class="mdc-list">
+      <% items.map do |i| %>
+        <a class="mdc-list-item" href="<%= i[:link] %>">
+          <span class="mdc-list-item__text"><%= i[:text] %></span>
+        </a>
+      <% end %>
+    </nav>
+  </div>
+</aside>

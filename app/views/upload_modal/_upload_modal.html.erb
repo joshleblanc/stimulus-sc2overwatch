@@ -8,19 +8,11 @@
       <div class="mdc-dialog__surface">
         <h2 class="mdc-dialog__title" id="upload-modal-title">Upload a replay</h2>
         <div class="mdc-dialog__content" id="upload-modal-content">
-          <%= render 'upload_modal/upload_step' %>
-          <%= render 'upload_modal/intermediary_step' %>
-          <%= render 'upload_modal/accuse_step' %>
-          <%= render 'upload_modal/intermediary_step' %>
+          <div data-controller="upload-steps" data-upload-steps-step="0">
+            <%= render 'upload_modal/upload_step' %>
+            <%= render 'upload_modal/intermediary_step' %>
+          </div>
         </div>
-        <footer class="mdc-dialog__actions">
-          <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="cancel">
-            <span class="mdc-button__label">Cancel</span>
-          </button>
-          <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="submit" data-target="upload-modal.submitButton" data-action="upload-modal#submitAccusation">
-            <span class="mdc-button__label">Submit</span>
-          </button>
-        </footer>
       </div>
     </div>
     <div class="mdc-dialog__scrim"></div>

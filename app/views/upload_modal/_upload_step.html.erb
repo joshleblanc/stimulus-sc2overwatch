@@ -1,6 +1,8 @@
 <div class="upload-step" data-target="upload-steps.step">
   <%= form_tag({ controller: :replay, action: :create }, class: 'upload-input', 'data-target': 'upload-steps.uploadForm', multipart: true) do %>
     <%= file_field_tag("file", hidden: true, "data-target": "upload-steps.fileInput", "data-action": "change->upload-steps#submit") %>
-    <%= button_tag("Select a replay", type: "button", class: "button", "data-action": "click->upload-steps#selectReplay") %>
+    <button class="mdc-button" type="button" data-action="click->upload-steps#selectReplay">
+      <span class="mdc-button__label">Select a replay</span>
+    </button>
   <% end %>
 </div>

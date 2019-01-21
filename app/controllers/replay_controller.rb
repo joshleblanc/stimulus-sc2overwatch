@@ -1,10 +1,37 @@
 class ReplayController < ApplicationController
   protect_from_forgery with: :null_session
 
-  def accuse
+  def show_accusation_form
     @game = Game.find(params[:game_id])
     render :accusation_form
   end
+
+  def accuse
+    game_player = GamePlayer.find_by(game_id: params[:game_id], player_id: params[:player])
+    if game_player.voters.map(&:ip).include? request.remote_ip
+      redirect_to game_player
+    else
+      if game_player.evidence.nil?
+        game_player.update(
+            is_accused: true,
+            guilty_count: game_player.guilty_count + 1,
+            evidence: params[:evidence]
+        )
+      else
+        game_player.update(
+            is_accused: true,
+            guilty_count: game_player.guilty_count + 1,
+        )
+      end
+
+      Voter.create(
+          ip: request.remote_ip,
+          game_player: game_player
+      )
+      redirect_to game_player
+    end
+  end
+
 
   def create
     file = params[:file].tempfile
@@ -66,14 +93,16 @@ class ReplayController < ApplicationController
             global_rank: data['global_rank'],
             apm: data['apm'],
             team: data['team'],
-            color: data['color']
+            color: data['color'],
+            guilty_count: 0,
+            innocent_count: 0
         )
       end
       result = replay_info
       break
     end
     if result
-      redirect_to action: :accuse, game_id: @game.id
+      redirect_to action: :show_accusation_form, game_id: @game.id
     else
       render nothing: true, status: 500
     end
