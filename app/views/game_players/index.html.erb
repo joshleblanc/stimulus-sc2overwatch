@@ -2,12 +2,16 @@
 
 <div class="mdc-layout-grid__inner">
   <% @game_players.map do |game_player| %>
-    <div class="mdc-layout-grid__cell">
+    <div class="mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell">
       <div class="mdc-card card">
         <div class="mdc-card__primary-action" data-mdc-auto-init="MDCRipple">
           <div class="mdc-card__media mdc-card__media--16-9" style='background-image: url("/img/maps/<%= game_player.game.map_image %>")'></div>
           <div class="card-content">
-            <h1 class="mdc-typography--headline6"><%= game_player.player.name %></h1>
+            <h1 class="mdc-typography--headline6">
+              <%= image_tag("flags/#{game_player.player.server}.png") %>
+              <%= image_tag("races/ico_race_#{game_player.race.downcase}.png") %>
+              <%= game_player.player.name %>
+            </h1>
             <div class="mdc-typography-body1"><%= game_player.game.map %></div>
             <div class="mdc-typography-body1"><%= game_player.game.format %> <%= game_player.game.game_type %></div>
             <div class="mdc-typography-body1"><%= game_player.game.date %></div>
@@ -15,65 +19,15 @@
             <div class="mdc-typography--caption"><%= game_player.innocent_count %> think they aren't hacking</div>
           </div>
         </div>
+        <div class="mdc-card__actions">
+          <button class="mdc-button mdc-card__action--button">
+            <span class="mdc-button__label">All Games</span>
+          </button>
+          <button class="mdc-button mdc-card__action--button">
+            <span class="mdc-button__label">Battle.net Profile</span>
+          </button>
+        </div>
       </div>
     </div>
   <% end %>
 </div>
-
-
-
-<h1>Game Players</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Is accused</th>
-      <th>Winner</th>
-      <th>Evidence</th>
-      <th>Clan</th>
-      <th>Race</th>
-      <th>Mmr</th>
-      <th>Division</th>
-      <th>Server rank</th>
-      <th>Global rank</th>
-      <th>Apm</th>
-      <th>Team</th>
-      <th>Color</th>
-      <th>Guilty count</th>
-      <th>Innocent count</th>
-      <th>Game</th>
-      <th>Player</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @game_players.each do |game_player| %>
-      <tr>
-        <td><%= game_player.is_accused %></td>
-        <td><%= game_player.winner %></td>
-        <td><%= game_player.evidence %></td>
-        <td><%= game_player.clan %></td>
-        <td><%= game_player.race %></td>
-        <td><%= game_player.mmr %></td>
-        <td><%= game_player.division %></td>
-        <td><%= game_player.server_rank %></td>
-        <td><%= game_player.global_rank %></td>
-        <td><%= game_player.apm %></td>
-        <td><%= game_player.team %></td>
-        <td><%= game_player.color %></td>
-        <td><%= game_player.guilty_count %></td>
-        <td><%= game_player.innocent_count %></td>
-        <td><%= game_player.game %></td>
-        <td><%= game_player.player %></td>
-        <td><%= link_to 'Show', game_player %></td>
-        <td><%= link_to 'Edit', edit_game_player_path(game_player) %></td>
-        <td><%= link_to 'Destroy', game_player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Game Player', new_game_player_path %>
