@@ -13,24 +13,20 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'%>
-  </head>
+  <link rel="manifest" href="/manifest.json" />
+<meta name="apple-mobile-web-app-capable" content="yes"></head>
 
   <body class="mdc-typography mdc-theme--background">
-    <div data-controller="nav-outer" data-action="modalStateChanged->nav-outer#offsetContent">
-      <div id="nav" data-controller="nav" data-nav-open="false" data-turbolinks-permanent>
-        <%= render "shared/nav_drawer" %>
-        <div class="mdc-drawer-app-content">
-          <%= render "shared/navbar" %>
-        </div>
-      </div>
-      <main data-target="nav-outer.content">
-        <div class="mdc-layout-grid mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
-          <%= yield %>
-        </div>
-      </main>
+    <div data-controller="nav" id="nav" data-turbolinks-permanent>
+      <%= render "shared/navbar" %>
+      <%= render 'drawer/drawer_modal' %>
     </div>
-
-
+    <div class="mdc-top-app-bar--fixed-adjust page">
+      <%= render "drawer/drawer" %>
+      <section class="mdc-layout-grid main-content">
+        <%= yield %>
+      </section>
+    </div>
 
     <%= render "upload_modal/upload_modal" %>
 

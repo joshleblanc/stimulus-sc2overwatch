@@ -2,7 +2,7 @@ class GamePlayersController < ApplicationController
   before_action :set_game_player, only: [:show, :edit, :update, :destroy]
 
   def recently_reported
-    @game_players = GamePlayer.where(is_accused: true)
+    @game_players = GamePlayer.order(:updated_at).where(is_accused: true).limit(25)
     render :index
   end
 

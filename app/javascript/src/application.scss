@@ -1,6 +1,12 @@
-$mdc-theme-primary: #fcb8ab;
-$mdc-theme-secondary: #feeae6;
-$mdc-theme-on-primary: #442b2d;
-$mdc-theme-on-secondary: #442b2d;
+$mdc-theme-primary: #2196f3;
+$mdc-theme-secondary: #2196f3;
+$mdc-theme-on-primary: white;
+$mdc-theme-on-secondary: white;
 $mdc-theme-background: #303030;
+$mdc-theme-surface: #424242;
+$mdc-theme-on-surface: white;
 @import "~material-components-web/material-components-web";
+
+.mdc-select option {
+  background-color: $mdc-theme-background;
+}

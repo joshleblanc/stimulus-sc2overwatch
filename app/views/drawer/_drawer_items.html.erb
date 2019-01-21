@@ -1,0 +1,10 @@
+<%
+  [
+    { text: "Recently Reported", link: recent_path },
+    { text: "All Reported Players", link: players_path },
+    { text: "All Games", link: games_path }
+  ].map do |i| %>
+  <a class="mdc-list-item <%= request.path == i[:link] ? 'mdc-list-item--activated' : '' %>" href="<%= i[:link] %>">
+    <span class="mdc-list-item__text"><%= i[:text] %></span>
+  </a>
+<% end %>
