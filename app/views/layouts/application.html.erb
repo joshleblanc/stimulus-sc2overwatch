@@ -15,7 +15,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'%>
   </head>
 
-  <body class="mdc-typography">
+  <body class="mdc-typography mdc-theme--background">
     <div data-controller="nav-outer" data-action="modalStateChanged->nav-outer#offsetContent">
       <div id="nav" data-controller="nav" data-nav-open="false" data-turbolinks-permanent>
         <%= render "shared/nav_drawer" %>

@@ -1,16 +1,20 @@
 import { Controller } from 'stimulus';
-import { drawer } from 'material-components-web/index';
+import { drawer, list } from 'material-components-web/index';
 
 export default class extends Controller {
-    static targets = [ 'drawer' ];
+    static targets = [ 'drawer', 'drawerList' ];
     readonly drawerTarget: HTMLElement;
+    readonly drawerListTarget: HTMLElement;
     drawer: drawer.MDCDrawer;
+    list: list.MDCList;
 
     initialize() {
         this.drawer = new drawer.MDCDrawer(this.drawerTarget);
         if(localStorage.getItem('drawerOpen') === "true") {
             this.toggleDrawer();
         }
+        this.list = new list.MDCList(this.drawerListTarget);
+        this.list.wrapFocus = true;
     }
 
     get open() {
