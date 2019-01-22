@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   resources :voters
   resources :game_players
   resources :games
-  resources :players
+  resources :players do
+    member do
+      get :games, to: "players#game_players"
+    end
+  end
   post "/games/:id/accuse", to: "games#accusation", as: :accuse_game_player
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

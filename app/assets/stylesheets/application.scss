@@ -4,6 +4,10 @@ body {
   margin: 0;
 }
 
+a:hover {
+  background-color: inherit;
+}
+
 .input {
   margin-bottom: 16px;
   width: 100% !important;
@@ -37,7 +41,7 @@ body {
 button.open-upload-modal-button {
   position: fixed;
   bottom: 32px;
-  right: 8px;
+  right: 16px;
 }
 
 .upload-input {

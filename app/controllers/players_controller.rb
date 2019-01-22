@@ -1,5 +1,15 @@
 class PlayersController < ApplicationController
-  before_action :set_player, only: [:show, :edit, :update, :destroy]
+  before_action :set_player, only: [:show, :edit, :update, :destroy, :game_players]
+
+  def reported
+    @players = Player.joins(:game_players).where("game_players.is_accused = ?", true).group('players.id')
+    render :index
+  end
+
+  def game_players
+    @game_players = @player.game_players
+    render :game_players
+  end
 
   # GET /players
   # GET /players.json

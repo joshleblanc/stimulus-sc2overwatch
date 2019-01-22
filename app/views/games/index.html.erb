@@ -1,5 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+<div class="mdc-layout-grid__inner">
+  <% @games.map do |g| %>
+    <%= render 'components/card/card' do %>
+      <%= render 'components/card/primary_action', link: nil do %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
 <h1>Games</h1>
 
 <table>

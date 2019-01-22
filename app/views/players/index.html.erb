@@ -1,5 +1,21 @@
 <p id="notice"><%= notice %></p>
 
+  <% @players.map do |p| %>
+    <%= render 'components/card/card' do %>
+      <%= render 'components/card/primary_action', link: games_player_path(p) do %>
+        <%= render 'components/card/content' do %>
+          <h2 class="mdc-typography--headline5">
+            <%= render 'components/flag', id: p.server %>
+            <%= p.name %>
+          </h2>
+          <span class="mdc-typography--caption mdc-theme--text-hint-on-dark">Last Report: <%= p.last_report %></span>
+          <span class="mdc-typography--caption mdc-theme--text-hint-on-dark">Reported <%= p.num_accused %> times</span>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
 <h1>Players</h1>
 
 <table>

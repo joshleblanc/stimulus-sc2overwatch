@@ -2,13 +2,13 @@
 
 <div class="mdc-layout-grid__inner">
   <% @game_players.map do |game_player| %>
-    <div class="mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell">
+    <div class="mdc-layout-grid__cell">
       <div class="mdc-card card">
         <div class="mdc-card__primary-action" data-mdc-auto-init="MDCRipple">
           <div class="mdc-card__media mdc-card__media--16-9" style='background-image: url("/img/maps/<%= game_player.game.map_image %>")'></div>
           <div class="card-content mdc-theme--on-surface">
             <h1 class="mdc-typography--headline6">
-              <%= image_tag("flags/#{game_player.player.server}.png") %>
+              <%= render 'components/flag', id: game_player.player.server %>
               <%= image_tag("races/ico_race_#{game_player.race.downcase}.png") %>
               <%= game_player.player.name %>
             </h1>
@@ -20,12 +20,11 @@
           </div>
         </div>
         <div class="mdc-card__actions">
-          <button class="mdc-button mdc-card__action--button">
-            <span class="mdc-button__label">All Games</span>
-          </button>
-          <button class="mdc-button mdc-card__action--button">
-            <span class="mdc-button__label">Battle.net Profile</span>
-          </button>
+          <%= render 'components/card/action', link: games_path do %>All Games<% end %>
+          <%= render 'components/card/action', link: game_player.player.bnet_url do %>
+            Battle.net URL
+            <i class="material-icons">launch</i>
+          <% end %>
         </div>
       </div>
     </div>

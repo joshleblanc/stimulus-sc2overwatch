@@ -1,0 +1,17 @@
+<%= render 'components/card/card' do %>
+  <%= render 'components/card/primary_action', link: nil do %>
+    <div class="mdc-card__media mdc-card__media--16-9" style='background-image: url("/img/maps/<%= game_player.game.map_image %>")'></div>
+    <%= render 'components/card/content' do %>
+      <h1 class="mdc-typography--headline6">
+        <%= render 'components/flag', id: game_player.player.server %>
+        <%= image_tag("races/ico_race_#{game_player.race.downcase}.png") %>
+        <%= game_player.player.name %>
+      </h1>
+      <div class="mdc-typography-body1"><%= game_player.game.map %></div>
+      <div class="mdc-typography-body1"><%= game_player.game.format %> <%= game_player.game.game_type %></div>
+      <div class="mdc-typography-body1"><%= game_player.game.date %></div>
+      <div class="mdc-typography--caption"><%= game_player.guilty_count %> think they're hacking</div>
+      <div class="mdc-typography--caption"><%= game_player.innocent_count %> think they aren't hacking</div>
+    <% end %>
+  <% end %>
+<% end %>
