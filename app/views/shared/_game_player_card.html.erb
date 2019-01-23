@@ -1,5 +1,5 @@
 <%= render 'components/card/card' do %>
-  <%= render 'components/card/primary_action', link: nil do %>
+  <%= render 'components/card/primary_action', link: game_player_path(game_player) do %>
     <div class="mdc-card__media mdc-card__media--16-9" style='background-image: url("/img/maps/<%= game_player.game.map_image %>")'></div>
     <%= render 'components/card/content' do %>
       <h1 class="mdc-typography--headline6">

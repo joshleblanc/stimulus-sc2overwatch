@@ -8,7 +8,8 @@
         <%= render 'components/select',
             name: "player",
             option_tags: options_from_collection_for_select(@game.players, "id", "name"),
-            text: "Pick a player"
+            text: "Pick a player",
+            data_target: "accusation.playerSelect"
         %>
       <% end %>
       <%= render 'shared/mdc_grid_for_form' do %>

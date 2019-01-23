@@ -4,11 +4,36 @@ class GamesController < ApplicationController
   def show
   end
 
-  def index
-    @game_players = GamePlayer.where(is_accused: true).order(:updated_at).limit(25)
+  def accuse
   end
 
-  def accuse
+  def update
+    game_player = GamePlayer.find_by(game: @game, player_id: params[:player])
+    if game_player.voters.map(&:ip).include? request.remote_ip
+      flash[:notice] = "You've already voted on this game"
+      redirect_to game_player
+    else
+      if game_player.evidence.nil?
+        flash[:notice] = "Successfully reported player"
+        game_player.update(
+            is_accused: true,
+            guilty_count: game_player.guilty_count + 1,
+            evidence: params[:evidence]
+        )
+      else
+        flash[:notice] = "this game has already been submitting. Your vote has been counted"
+        game_player.update(
+            is_accused: true,
+            guilty_count: game_player.guilty_count + 1,
+        )
+      end
+
+      Voter.create(
+          ip: request.remote_ip,
+          game_player: game_player
+      )
+      redirect_to game_path(@game)
+    end
   end
 
   def upload
@@ -87,34 +112,6 @@ class GamesController < ApplicationController
     end
   end
 
-  def update
-    game_player = GamePlayer.find_by(game: @game, player_id: params[:player])
-    if game_player.voters.map(&:ip).include? request.remote_ip
-      flash[:notice] = "You've already voted on this game"
-      redirect_to game_player
-    else
-      if game_player.evidence.nil?
-        flash[:notice] = "Successfully reported player"
-        game_player.update(
-            is_accused: true,
-            guilty_count: game_player.guilty_count + 1,
-            evidence: params[:evidence]
-        )
-      else
-        flash[:notice] = "this game has already been submitting. Your vote has been counted"
-        game_player.update(
-            is_accused: true,
-            guilty_count: game_player.guilty_count + 1,
-        )
-      end
-
-      Voter.create(
-          ip: request.remote_ip,
-          game_player: game_player
-      )
-      redirect_to game_path(@game)
-    end
-  end
 
   private
   def set_game

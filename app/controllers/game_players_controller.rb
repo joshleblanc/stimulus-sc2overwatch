@@ -1,69 +1,13 @@
 class GamePlayersController < ApplicationController
   before_action :set_game_player, only: [:show, :edit, :update, :destroy]
 
-  def recently_reported
-    @game_players = GamePlayer.order(:updated_at).where(is_accused: true).limit(25)
-    render :index
-  end
-
-  # GET /game_players
-  # GET /game_players.json
   def index
-    @game_players = GamePlayer.all
+    @game_players = GamePlayer.where(is_accused: true).order(:updated_at).limit(25)
   end
 
   # GET /game_players/1
   # GET /game_players/1.json
   def show
-  end
-
-  # GET /game_players/new
-  def new
-    @game_player = GamePlayer.new
-  end
-
-  # GET /game_players/1/edit
-  def edit
-  end
-
-  # POST /game_players
-  # POST /game_players.json
-  def create
-    @game_player = GamePlayer.new(game_player_params)
-
-    respond_to do |format|
-      if @game_player.save
-        format.html { redirect_to @game_player, notice: 'Game player was successfully created.' }
-        format.json { render :show, status: :created, location: @game_player }
-      else
-        format.html { render :new }
-        format.json { render json: @game_player.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /game_players/1
-  # PATCH/PUT /game_players/1.json
-  def update
-    respond_to do |format|
-      if @game_player.update(game_player_params)
-        format.html { redirect_to @game_player, notice: 'Game player was successfully updated.' }
-        format.json { render :show, status: :ok, location: @game_player }
-      else
-        format.html { render :edit }
-        format.json { render json: @game_player.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /game_players/1
-  # DELETE /game_players/1.json
-  def destroy
-    @game_player.destroy
-    respond_to do |format|
-      format.html { redirect_to game_players_url, notice: 'Game player was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private
