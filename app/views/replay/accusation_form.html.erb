@@ -1,5 +1,5 @@
 <div data-controller="accusation">
-  <%= form_tag({}, remtoe: true, "data-target": "accusation.form") do %>
+  <%= form_tag({}, remote: true, "data-target": "accusation.form") do %>
     <div class="mdc-layout-grid">
       <%= render 'shared/mdc_grid_for_form', { locals: { center_text: true }} do %>
         <h1 class="mdc-typography--headline5 mdc-theme--on-surface">Accuse a player</h1>

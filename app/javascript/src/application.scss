@@ -10,3 +10,9 @@ $mdc-theme-on-surface: white;
 .mdc-select option {
   background-color: $mdc-theme-background;
 }
+
+@media (min-width: $mdc-snackbar-mobile-breakpoint) {
+  .snackbar {
+    @include mdc-snackbar-position-leading;
+  }
+}

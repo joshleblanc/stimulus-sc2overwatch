@@ -4,6 +4,12 @@ body {
   margin: 0;
 }
 
+.snackbar {
+  position: fixed;
+  margin-left: 16px;
+  margin-bottom: 32px;
+}
+
 a:hover {
   background-color: inherit;
 }

@@ -3,6 +3,10 @@
 <div class="mdc-layout-grid__inner">
   <% @game_players.map do |game_player| %>
     <div class="mdc-layout-grid__cell">
+      <%= render 'components/card/card' do %>
+        <%= render 'components/card/primary_action', link: game_player_path(game_player.game) do %>
+        <% end %>
+      <% end %>
       <div class="mdc-card card">
         <div class="mdc-card__primary-action" data-mdc-auto-init="MDCRipple">
           <div class="mdc-card__media mdc-card__media--16-9" style='background-image: url("/img/maps/<%= game_player.game.map_image %>")'></div>
@@ -20,11 +24,8 @@
           </div>
         </div>
         <div class="mdc-card__actions">
-          <%= render 'components/card/action', link: games_path do %>All Games<% end %>
-          <%= render 'components/card/action', link: game_player.player.bnet_url do %>
-            Battle.net URL
-            <i class="material-icons">launch</i>
-          <% end %>
+          <%= render 'components/card/action', link: games_player_path(game_player.player) do %>All Games<% end %>
+          <%= render 'components/card/action', link: game_player.player.bnet_url do %>Battle.net URL<% end %>
         </div>
       </div>
     </div>

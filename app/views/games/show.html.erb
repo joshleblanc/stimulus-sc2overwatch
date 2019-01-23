@@ -1,46 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<%= react_component("input") %>
-
-<p>
-  <strong>Map:</strong>
-  <%= @game.map %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @game.date %>
-</p>
-
-<p>
-  <strong>Url:</strong>
-  <%= @game.url %>
-</p>
-
-<p>
-  <strong>Format:</strong>
-  <%= @game.format %>
-</p>
-
-<p>
-  <strong>Game type:</strong>
-  <%= @game.game_type %>
-</p>
-
-<p>
-  <strong>Season:</strong>
-  <%= @game.season_id %>
-</p>
-
-<p>
-  <strong>Replay version:</strong>
-  <%= @game.replay_version %>
-</p>
-
-<p>
-  <strong>Map image:</strong>
-  <%= @game.map_image %>
-</p>
-
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>
+<div class="mdc-layout-grid__inner">
+  <% @games.map do |game| %>
+    <div class="mdc-layout-grid__cell">
+      <%= render 'components/card/card' do %>
+        <%= render 'components/card/primary_action', link: game_path(game_player.game) do %>
+        <% end %>
+      <% end %>
+      <div class="mdc-card card">
+        <div class="mdc-card__primary-action" data-mdc-auto-init="MDCRipple">
+          <div class="mdc-card__media mdc-card__media--16-9" style='background-image: url("/img/maps/<%= game_player.game.map_image %>")'></div>
+          <div class="card-content mdc-theme--on-surface">
+            <h1 class="mdc-typography--headline6">
+              <%= render 'components/flag', id: game_player.player.server %>
+              <%= image_tag("races/ico_race_#{game_player.race.downcase}.png") %>
+              <%= game_player.player.name %>
+            </h1>
+            <div class="mdc-typography-body1"><%= game_player.game.map %></div>
+            <div class="mdc-typography-body1"><%= game_player.game.format %> <%= game_player.game.game_type %></div>
+            <div class="mdc-typography-body1"><%= game_player.game.date %></div>
+            <div class="mdc-typography--caption"><%= game_player.guilty_count %> think they're hacking</div>
+            <div class="mdc-typography--caption"><%= game_player.innocent_count %> think they aren't hacking</div>
+          </div>
+        </div>
+        <div class="mdc-card__actions">
+          <%= render 'components/card/action', link: games_player_path(game_player.player) do %>All Games<% end %>
+          <%= render 'components/card/action', link: game_player.player.bnet_url do %>Battle.net URL<% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
