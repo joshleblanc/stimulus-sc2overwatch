@@ -10,7 +10,7 @@ class VotersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get new" do
+  test "should get accuse" do
     get new_voter_url
     assert_response :success
   end

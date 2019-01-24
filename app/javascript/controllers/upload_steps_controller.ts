@@ -19,7 +19,7 @@ export default class extends Controller {
     initialize() {
         this.showCurrentStep();
         this.setSubmitButtonState();
-        // this.dropzone = new Dropzone(this.dropzoneTarget, {
+        // this.dropzone = accuse Dropzone(this.dropzoneTarget, {
         //     previewTemplate: "<div></div>",
         //     headers: {
         //         "Accept": "text/html"
