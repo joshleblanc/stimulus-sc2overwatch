@@ -13,5 +13,13 @@
       <div class="mdc-typography--caption"><%= game_player.guilty_count %> think they're hacking</div>
       <div class="mdc-typography--caption"><%= game_player.innocent_count %> think they aren't hacking</div>
     <% end %>
+    <%= render 'components/card/card_actions' do %>
+      <%= render 'components/card/action', link: player_path(game_player.player) do %>
+        All Games
+      <% end %>
+      <%= render 'components/card/action', link: game_player.player.bnet_url do %>
+        Battle.net URL
+      <% end %>
+    <% end %>
   <% end %>
 <% end %>

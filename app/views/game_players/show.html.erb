@@ -9,7 +9,7 @@
         <span class="mdc-button__label">Download the replay</span>
       </a>
       <h1 class="mdc-typography--headline6">Evidence</h1>
-      <p class="mdc-typography--body2"><%= @game_player.evidence %></p>
+      <pre class="mdc-typography--body2 mdc-theme--background"><%= @game_player.evidence %></pre>
       <h1 class="mdc-typography--headline6">Verify the winner</h1>
       <%= render 'components/select',
           name: :player,
