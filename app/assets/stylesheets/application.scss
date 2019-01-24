@@ -1,10 +1,31 @@
+@import "./*";
+
 body {
   margin: 0;
+}
+
+.snackbar {
+  position: fixed;
+  margin-left: 16px;
+  margin-bottom: 32px;
+}
+
+a:hover {
+  background-color: inherit;
 }
 
 .input {
   margin-bottom: 16px;
   width: 100% !important;
+}
+
+.drawer-offset {
+  margin-left: 256px;
+  margin-right: 0;
+}
+
+.text-align-center {
+  text-align: center;
 }
 
 .modal h5 {
@@ -26,7 +47,7 @@ body {
 button.open-upload-modal-button {
   position: fixed;
   bottom: 32px;
-  right: 8px;
+  right: 16px;
 }
 
 .upload-input {
@@ -47,4 +68,47 @@ button.open-upload-modal-button {
 
 nav .site-title {
   padding: 0 15px
+}
+
+.mdc-dialog .mdc-dialog__scrim {
+  background-color: rgba(0, 0, 0, 0.32)
+}
+
+.permanent-drawer {
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.page {
+  display: flex;
+  height: calc(100vh - 64px);
+}
+
+@media (max-width: 1320px) {
+  .permanent-drawer {
+    display: none;
+  }
+}
+
+@media (max-width: 1320px) {
+  .permanent-drawer {
+    display: none;
+  }
+}
+
+.drawer-button {
+  display: none;
+}
+
+@media(max-width: 1320px) {
+  .drawer-button {
+    display: flex;
+  }
 }

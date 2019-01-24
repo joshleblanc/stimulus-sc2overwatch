@@ -5,26 +5,34 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true%>
   </head>
 
-  <body class="mdc-typography">
-    <div id="app">
-      <div class="statusbar"></div>
-      <div class="page">
-        <%= render "shared/navbar" %>
-        <div class="page-content">
-            <%= yield %>
-        </div>
-      </div>
+  <body class="mdc-typography mdc-theme--background">
+    <div data-controller="nav" id="nav">
+      <%= render "shared/navbar" %>
+      <%= render 'drawer/drawer_modal' %>
     </div>
-    <%= render "upload_modal/upload_modal" %>
+    <div class="mdc-top-app-bar--fixed-adjust page">
+      <%= render "drawer/drawer" %>
+      <section class="mdc-layout-grid main-content">
+        <%= yield %>
+      </section>
+    </div>
 
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'%>
+    <%= render "upload_modal/upload_modal" %>
+    <%= render "components/snackbar/snackbar" %>
+
+    <script>
+      window.autoInit();
+    </script>
   </body>
 
 

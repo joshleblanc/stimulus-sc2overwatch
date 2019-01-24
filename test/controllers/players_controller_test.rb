@@ -10,7 +10,7 @@ class PlayersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get new" do
+  test "should get accuse" do
     get new_player_url
     assert_response :success
   end

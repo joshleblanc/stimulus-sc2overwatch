@@ -1,0 +1,12 @@
+<h1 class="mdc-typography--headline6 mdc-theme--text-primary-on-background">
+  <a class="mdc-theme--text-primary-on-background" href="<%= @player.bnet_url %>"><%= @player.name %></a>
+  <i class="material-icons">launch</i>
+  games
+</h1>
+<div class="mdc-layout-grid__inner">
+  <% @game_players.map do |game_player| %>
+    <div class="mdc-layout-grid__cell">
+      <%= render 'shared/game_player_card', game_player: game_player %>
+    </div>
+  <% end %>
+</div>

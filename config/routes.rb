@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
-  get 'replay/upload'
-  get 'replay/accuse/:game_id', to: "replay#accuse"
-  post 'replay/create'
-  resources :voters
-  resources :game_players
-  resources :games
-  resources :players
-  post "/games/:id/accuse", to: "games#accusation", as: :accuse_game_player
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'game_players#index'
+
+  get 'game_players/accuse/:game_id', to: 'game_players#accuse', as: :accuse_player
+  post 'game_players/accuse/:game_id', to: 'game_players#update', as: :update_game_player
+  resources :game_players, only: [:index, :show, :create]
+  resources :players, only: [:index, :show]
 end

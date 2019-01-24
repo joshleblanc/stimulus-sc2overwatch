@@ -5,7 +5,6 @@
     "@rails/webpacker": "3.5",
     "autoprefixer": "^9.4.5",
     "babel-preset-react": "^6.24.1",
-    "framework7": "^3.6.5",
     "material-components-web": "^0.43.0",
     "resolve-url-loader": "^3.0.0",
     "stimulus": "^1.1.1",

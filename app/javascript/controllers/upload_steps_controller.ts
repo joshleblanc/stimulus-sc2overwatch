@@ -1,13 +1,25 @@
 import { Controller } from 'stimulus';
-import Dropzone from "dropzone";
 
 export default class extends Controller {
     static targets = [ "uploadForm", "fileInput", "selectButton", "openButton", "step", "replayInput", "uploadForm", "submitButton", "accusationForm", "playerSelect", "evidence" ];
 
+    readonly uploadFormTarget: HTMLFormElement;
+    readonly fileInputTarget: HTMLInputElement;
+    readonly playerSelectTarget: HTMLSelectElement;
+    readonly evidenceTarget: HTMLTextAreaElement;
+    readonly submitButtonTarget: HTMLButtonElement;
+    readonly stepTargets: Array<HTMLDivElement>;
+    readonly accusationFormTarget: HTMLFormElement;
+    readonly replayInputTarget: HTMLInputElement;
+    readonly hasSubmitButtonTarget: Boolean;
+    readonly hasEvidenceTarget: Boolean;
+    readonly hasPlayerSelectTarget: Boolean;
+
+
     initialize() {
         this.showCurrentStep();
         this.setSubmitButtonState();
-        // this.dropzone = new Dropzone(this.dropzoneTarget, {
+        // this.dropzone = accuse Dropzone(this.dropzoneTarget, {
         //     previewTemplate: "<div></div>",
         //     headers: {
         //         "Accept": "text/html"
@@ -48,7 +60,6 @@ export default class extends Controller {
     }
 
     showCurrentStep() {
-        console.log("Shwoing current step", this.stepTargets, this.step);;
         this.stepTargets.forEach((el, i) => {
             el.classList.toggle('upload-step--current', i === this.step);
         })

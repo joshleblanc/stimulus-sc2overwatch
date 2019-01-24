@@ -1,24 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Bnet url:</strong>
-  <%= @player.bnet_url %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @player.name %>
-</p>
-
-<p>
-  <strong>Server:</strong>
-  <%= @player.server %>
-</p>
-
-<p>
-  <strong>Bnet:</strong>
-  <%= @player.bnet_id %>
-</p>
-
-<%= link_to 'Edit', edit_player_path(@player) %> |
-<%= link_to 'Back', players_path %>
+<div class="mdc-layout-grid__inner">
+  <% @player.games.map do |g| %>
+    <div class="mdc-layout-grid__cell">
+      <%= render 'shared/game_player_card', game_player: g.accused_game_player %>
+    </div>
+  <% end %>
+</div>

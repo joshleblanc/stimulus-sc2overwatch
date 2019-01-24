@@ -12,7 +12,7 @@ class VotersController < ApplicationController
   def show
   end
 
-  # GET /voters/new
+  # GET /voters/accuse
   def new
     @voter = Voter.new
   end

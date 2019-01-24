@@ -1,84 +1,36 @@
-<p id="notice"><%= notice %></p>
+<div class="mdc-layout-grid__inner">
+  <div class="mdc-layout-grid__cell">
+    <%= render 'shared/game_player_card', game_player: @game_player %>
+  </div>
+  <div class="mdc-layout-grid__cell">
+    <div data-controller="vote" class="mdc-theme--on-surface">
+      <h2 class="mdc-typography--headline5">Choose your verdict</h2>
+      <a href="<%= @game_player.game.url %>" target="_blank" class="mdc-button" data-mdc-auto-init="MDCRipple">
+        <span class="mdc-button__label">Download the replay</span>
+      </a>
+      <h1 class="mdc-typography--headline6">Evidence</h1>
+      <pre class="mdc-typography--body2 mdc-theme--background"><%= @game_player.evidence %></pre>
+      <h1 class="mdc-typography--headline6">Verify the winner</h1>
+      <%= render 'components/select',
+          name: :player,
+          option_tags: options_from_collection_for_select(@game_player.game.players, :id, :name),
+          text: "Pick a player",
+          data_target: "vote.player"
+      %>
+      <%= render 'components/select', {
+          name: :verdict,
+          option_tags: options_for_select([
+              %w(Guilty guilty),
+              %w(Innocent innocent)
+          ]),
+          text: "Verdict",
+          data_target: "vote.verdict" }
+      %>
+      <button class="mdc-button" type="submit" data-target="vote.submit" data-mdc-auto-init="MDCRipple">
+        <span class="mdc-button__label">Submit</span>
+      </button>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Is accused:</strong>
-  <%= @game_player.is_accused %>
-</p>
 
-<p>
-  <strong>Winner:</strong>
-  <%= @game_player.winner %>
-</p>
-
-<p>
-  <strong>Evidence:</strong>
-  <%= @game_player.evidence %>
-</p>
-
-<p>
-  <strong>Clan:</strong>
-  <%= @game_player.clan %>
-</p>
-
-<p>
-  <strong>Race:</strong>
-  <%= @game_player.race %>
-</p>
-
-<p>
-  <strong>Mmr:</strong>
-  <%= @game_player.mmr %>
-</p>
-
-<p>
-  <strong>Division:</strong>
-  <%= @game_player.division %>
-</p>
-
-<p>
-  <strong>Server rank:</strong>
-  <%= @game_player.server_rank %>
-</p>
-
-<p>
-  <strong>Global rank:</strong>
-  <%= @game_player.global_rank %>
-</p>
-
-<p>
-  <strong>Apm:</strong>
-  <%= @game_player.apm %>
-</p>
-
-<p>
-  <strong>Team:</strong>
-  <%= @game_player.team %>
-</p>
-
-<p>
-  <strong>Color:</strong>
-  <%= @game_player.color %>
-</p>
-
-<p>
-  <strong>Guilty count:</strong>
-  <%= @game_player.guilty_count %>
-</p>
-
-<p>
-  <strong>Innocent count:</strong>
-  <%= @game_player.innocent_count %>
-</p>
-
-<p>
-  <strong>Game:</strong>
-  <%= @game_player.game %>
-</p>
-
-<p>
-  <strong>Player:</strong>
-  <%= @game_player.player %>
-</p>
-
-<%= link_to 'Edit', edit_game_player_path(@game_player) %> |
-<%= link_to 'Back', game_players_path %>

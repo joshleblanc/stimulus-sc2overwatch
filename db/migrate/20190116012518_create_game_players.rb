@@ -13,8 +13,8 @@ class CreateGamePlayers < ActiveRecord::Migration[5.2]
       t.integer :apm
       t.integer :team
       t.string :color
-      t.integer :guilty_count
-      t.integer :innocent_count
+      t.integer :guilty_count, default: 0
+      t.integer :innocent_count, default: 0
       t.references :game, foreign_key: true
       t.references :player, foreign_key: true
 

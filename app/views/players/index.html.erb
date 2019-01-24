@@ -1,33 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Players</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Bnet url</th>
-      <th>Name</th>
-      <th>Server</th>
-      <th>Bnet</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @players.each do |player| %>
-      <tr>
-        <td><%= player.bnet_url %></td>
-        <td><%= player.name %></td>
-        <td><%= player.server %></td>
-        <td><%= player.bnet_id %></td>
-        <td><%= link_to 'Show', player %></td>
-        <td><%= link_to 'Edit', edit_player_path(player) %></td>
-        <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Player', new_player_path %>
+<div class="mdc-layout-grid__inner">
+  <% @players.map do |p| %>
+    <div class="mdc-layout-grid__cell--span-3">
+      <%= render 'components/card/card' do %>
+        <%= render 'components/card/primary_action', link: player_path(p) do %>
+          <%= render 'components/card/content' do %>
+            <h2 class="mdc-typography--headline5">
+              <%= render 'components/flag', id: p.server %>
+              <%= p.name %>
+            </h2>
+            <span class="mdc-typography--caption mdc-theme--text-hint-on-dark">Last Report: <%= p.last_report %></span>
+            <br />
+            <span class="mdc-typography--caption mdc-theme--text-hint-on-dark">Reported <%= p.num_accused %> times</span>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

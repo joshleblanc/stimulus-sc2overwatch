@@ -1,0 +1,12 @@
+<div data-controller="snackbar" data-snackbar-notice="<%= notice %>">
+  <div class="mdc-snackbar snackbar" data-target="snackbar.snackbar" id="snackbar" data-turbolinks-permanent>
+    <div class="mdc-snackbar__surface mdc-theme--surface">
+      <div class="mdc-snackbar__label mdc-theme--on-surface">
+        <%= notice %>
+      </div>
+      <div class="mdc-snackbar__actions">
+        <button class="mdc-icon-button mdc-snackbar__dismiss material-icons mdc-theme--on-surface" data-target="snackbar.closeButton">close</button>
+      </div>
+    </div>
+  </div>
+</div>
