@@ -8,9 +8,7 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import { autoInit } from "material-components-web/index";
-console.log(autoInit);
-window.autoInit = autoInit;
-
+autoInit();
 import { Application } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
 import '../src/application.scss';

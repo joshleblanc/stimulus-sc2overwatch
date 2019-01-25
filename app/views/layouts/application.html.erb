@@ -16,9 +16,10 @@
   </head>
 
   <body class="mdc-typography mdc-theme--background">
-    <div data-controller="nav" id="nav">
+    <div data-controller="nav" id="nav" data-nav-search-open="true" data-nav-search-url="<%= search_players_path %>">
       <%= render "shared/navbar" %>
       <%= render 'drawer/drawer_modal' %>
+      <%= render 'shared/search_results' %>
     </div>
     <div class="mdc-top-app-bar--fixed-adjust page">
       <%= render "drawer/drawer" %>
@@ -29,10 +30,6 @@
 
     <%= render "upload_modal/upload_modal" %>
     <%= render "components/snackbar/snackbar" %>
-
-    <script>
-      window.autoInit();
-    </script>
   </body>
 
 

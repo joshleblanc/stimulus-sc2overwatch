@@ -1,0 +1,15 @@
+<% if @players.empty? %>
+  <div class="mdc-typography--headline4 mdc-theme--on-surface">
+    No results for
+    <strong><%= params[:q] %></strong>
+    were found
+  </div>
+<% else %>
+  <ul class="mdc-list">
+    <% @players.map do |p| %>
+      <li class="mdc-list-item">
+        <span class="mdc-list-item__text"><%= p.name %></span>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
