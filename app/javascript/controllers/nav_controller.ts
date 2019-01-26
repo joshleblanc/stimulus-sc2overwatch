@@ -2,7 +2,7 @@ import {Controller} from 'stimulus';
 import {drawer, list} from 'material-components-web/index';
 
 export default class extends Controller {
-    static targets = [ 'drawer', 'list', 'navbar', 'search', 'searchInput', 'searchResults', 'searchPlaceholder' ];
+    static targets = [ 'drawer', 'list', 'navbar', 'search', 'searchInput', 'searchResults', 'searchPlaceholder', 'loader' ];
     readonly drawerTarget: HTMLElement;
     readonly listTarget: HTMLElement;
     readonly navbarTarget: HTMLElement;
@@ -10,6 +10,7 @@ export default class extends Controller {
     readonly searchInputTarget: HTMLInputElement;
     readonly searchResultsTarget: HTMLElement;
     readonly searchPlaceholderTarget: HTMLElement;
+    readonly loaderTarget: HTMLElement;
     drawer: drawer.MDCDrawer;
     searchTimeout: number;
 
@@ -29,14 +30,24 @@ export default class extends Controller {
 
     search = async () => {
         const query = this.searchInputTarget.value;
-        const resp = await fetch(`${this.data.get('searchUrl')}?q=${query}`);
+        this.loaderTarget.classList.toggle('hide', false);
+        this.searchResultsTarget.classList.toggle('hide', true);
         this.searchPlaceholderTarget.classList.toggle('hide', true);
+        const resp = await fetch(`${this.data.get('searchUrl')}?q=${query}`);
+        this.loaderTarget.classList.toggle('hide', true);
+        this.searchPlaceholderTarget.classList.toggle('hide', true);
+        this.searchResultsTarget.classList.toggle('hide', false);
         this.searchResultsTarget.innerHTML = await resp.text();
     };
 
     searchChange(e) {
         clearTimeout(this.searchTimeout);
-        this.searchTimeout = setTimeout(this.search, 250);
+        if(e.target.value.length === 0) {
+            this.searchPlaceholderTarget.classList.toggle('hide', false);
+            this.searchResultsTarget.classList.toggle('hide', true);
+        } else {
+            this.searchTimeout = setTimeout(this.search, 250);
+        }
     }
 
     toggleVisibleNavbar(b) {

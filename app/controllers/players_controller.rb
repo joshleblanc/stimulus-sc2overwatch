@@ -6,7 +6,8 @@ class PlayersController < ApplicationController
   end
 
   def search
-    @players = Player.where('name like ? or cast(id as varchar(25)) like ?', "%#{params[:q]}%", "%#{params[:q]}%")
+    query = params[:q].downcase
+    @players = Player.where('lower(name) like ? or cast(id as varchar(255)) like ?', "%#{query}%", "%#{query}%")
     render partial: 'search'
   end
 
