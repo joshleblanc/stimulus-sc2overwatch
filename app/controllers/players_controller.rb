@@ -2,12 +2,12 @@ class PlayersController < ApplicationController
   before_action :set_player, only: [:show]
 
   def index
-    @players = Player.joins(:game_players).where("game_players.is_accused = ?", true).group('players.id')
+    @players = Player.accused_players
   end
 
   def search
     query = params[:q].downcase
-    @players = Player.where('lower(name) like ? or cast(id as varchar(255)) like ?', "%#{query}%", "%#{query}%")
+    @players = Player.accused_players.where('lower(name) like ? or cast(player_id as varchar(255)) like ?', "%#{query}%", "%#{query}%")
     render partial: 'search'
   end
 

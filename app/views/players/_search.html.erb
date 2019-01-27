@@ -5,11 +5,15 @@
     were found
   </div>
 <% else %>
-  <ul class="mdc-list">
+  <ul class="mdc-list" data-target="nav.searchResultList">
     <% @players.map do |p| %>
-      <li class="mdc-list-item">
+      <a href="<%= player_path(p) %>" class="mdc-list-item" >
+        <span class="mdc-list-item__graphic">
+          <%= render 'components/flag', id: p.server %>
+        </span>
         <span class="mdc-list-item__text"><%= p.name %></span>
-      </li>
-    <% end %>
+      </a>
+      <li role="separator" class="mdc-list-divider"></li>
+  <% end %>
   </ul>
 <% end %>
