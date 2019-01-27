@@ -4,6 +4,15 @@ body {
   margin: 0;
 }
 
+
+.hide {
+  display: none !important;
+}
+
+.mdc-text-field--fullwidth:not(.mdc-text-field--textarea) .mdc-text-field__input.search-text-field {
+  padding: 20px 16px 4px;
+}
+
 .snackbar {
   position: fixed;
   margin-left: 16px;

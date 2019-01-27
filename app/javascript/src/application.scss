@@ -1,5 +1,5 @@
 $mdc-theme-primary: #2196f3;
-$mdc-theme-secondary: #2196f3;
+$mdc-theme-secondary: #c86f00;
 $mdc-theme-on-primary: white;
 $mdc-theme-on-secondary: white;
 $mdc-theme-background: #303030;
@@ -15,4 +15,18 @@ $mdc-theme-on-surface: white;
   .snackbar {
     @include mdc-snackbar-position-leading;
   }
+}
+
+.search-results-background {
+  height: 100vh;
+  width: 100%;
+  background-color: #424242;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.search-results-container {
+  padding: 32px;
 }

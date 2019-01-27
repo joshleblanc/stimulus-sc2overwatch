@@ -1,4 +1,4 @@
-<header class="mdc-top-app-bar mdc-top-app-bar--fixed mdc-elevation--z1" data-mdc-auto-init="MDCTopAppBar">
+<header class="mdc-top-app-bar mdc-top-app-bar--fixed mdc-elevation--z1" data-mdc-auto-init="MDCTopAppBar" data-target="nav.navbar">
   <div class="mdc-top-app-bar__row">
     <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
       <div class="drawer-button">
@@ -7,7 +7,19 @@
       <span class="mdc-top-app-bar__title">SC2Overwatch</span>
     </section>
     <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-      <a class="material-icons mdc-top-app-bar__action-item">search</a>
+      <a class="material-icons mdc-top-app-bar__action-item" data-action="click->nav#toggleSearch">search</a>
+    </section>
+  </div>
+</header>
+
+<header data-target="nav.search" class="mdc-top-app-bar mdc-top-app-bar--fixed">
+  <div class="mdc-top-app-bar__row">
+    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start" data-mdc-auto-init="MDCTextField">
+      <div class="mdc-text-field mdc-text-field--fullwidth mdc-theme--primary-bg">
+        <input id="search-input" class="mdc-text-field__input search-text-field" type="text" data-target="nav.searchInput" data-action="input->nav#searchChange">
+        <label for="search-input" class="mdc-floating-label mdc-theme--on-surface">Search</label>
+        <div class="mdc-line-ripple"></div>
+      </div>
     </section>
   </div>
 </header>
