@@ -17,11 +17,7 @@
 
   <body class="mdc-typography mdc-theme--background">
     <div data-controller="mdc-auto-init" ></div>
-    <div data-controller="nav" data-nav-search-open="false" data-nav-step="0" data-nav-search-url="<%= search_players_path %>">
-      <%= render "shared/navbar" %>
-      <%= render 'drawer/drawer_modal' %>
-      <%= render 'shared/search_results' %>
-    </div>
+    <%= render 'nav/nav' %>
     <div class="mdc-top-app-bar--fixed-adjust page">
       <%= render "drawer/drawer" %>
       <section class="mdc-layout-grid main-content">
