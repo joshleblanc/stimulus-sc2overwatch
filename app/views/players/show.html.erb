@@ -1,3 +1,4 @@
+<h1 class="mdc-typography--headline6 mdc-theme--on-surface"><%= @player.name %>'s Games</h1>
 <div class="mdc-layout-grid__inner">
   <% @player.games.map do |g| %>
     <% if g.accused_game_player %>
