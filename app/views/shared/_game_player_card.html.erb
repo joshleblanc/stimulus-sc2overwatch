@@ -1,25 +1,33 @@
-<%= render 'components/card/card' do %>
-  <%= render 'components/card/primary_action', link: game_player_path(game_player) do %>
-    <div class="mdc-card__media mdc-card__media--16-9" style='background-image: url("/img/maps/<%= game_player.game.map_image %>")'></div>
-    <%= render 'components/card/content' do %>
-      <h1 class="mdc-typography--headline6">
-        <%= render 'components/flag', id: game_player.player.server %>
-        <%= image_tag("races/ico_race_#{game_player.race.downcase}.png") %>
-        <%= game_player.player.name %>
-      </h1>
-      <div class="mdc-typography-body1"><%= game_player.game.map %></div>
-      <div class="mdc-typography-body1"><%= game_player.game.format %> <%= game_player.game.game_type %></div>
-      <div class="mdc-typography-body1"><%= game_player.game.date %></div>
-      <div class="mdc-typography--caption"><%= game_player.guilty_count %> think they're hacking</div>
-      <div class="mdc-typography--caption"><%= game_player.innocent_count %> think they aren't hacking</div>
-    <% end %>
-    <%= render 'components/card/card_actions' do %>
-      <%= render 'components/card/action', link: player_path(game_player.player) do %>
-        All Games
-      <% end %>
-      <%= render 'components/card/action', link: game_player.player.bnet_url do %>
-        Battle.net URL
-      <% end %>
-    <% end %>
-  <% end %>
-<% end %>
+<div class="mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell">
+  <div class="mdc-card card game-player-card">
+    <a href="<%= game_player_path(game_player) %>"
+       class="mdc-card__primary-action row"
+       data-mdc-auto-init="MDCRipple">
+      <div class="mdc-card__media mdc-card__media--16-9 game-player-card-media" style='background-image: url("/img/maps/<%= game_player.game.map_image %>")'></div>
+      <div class="card-content mdc-theme--on-surface column">
+        <h1 class="mdc-typography--headline6">
+          <%= render 'components/flag', id: game_player.player.server %>
+          <%= image_tag("races/ico_race_#{game_player.race.downcase}.png") %>
+          <%= game_player.player.name %>
+        </h1>
+        <div class="mdc-typography-body1"><%= game_player.game.map %></div>
+        <div class="mdc-typography-body1"><%= game_player.game.format %> <%= game_player.game.game_type %></div>
+        <div class="mdc-typography-body1"><%= game_player.game.date %></div>
+        <div class="mdc-typography--caption"><%= game_player.guilty_count %> think they're hacking</div>
+        <div class="mdc-typography--caption"><%= game_player.innocent_count %> think they aren't hacking</div>
+      </div>
+    </a>
+    <div class="row">
+      <div class="column">
+        <%= render 'components/card/card_actions' do %>
+          <%= render 'components/card/action', link: player_path(game_player.player) do %>
+            All Games
+          <% end %>
+          <%= render 'components/card/action', link: game_player.player.bnet_url, open_in_new_tab: true do %>
+            Battle.net URL
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

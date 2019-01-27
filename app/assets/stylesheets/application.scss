@@ -4,6 +4,25 @@ body {
   margin: 0;
 }
 
+//.mdc-card__media.mdc-card__media--16-9.game-player-card-media {
+//  height: 100%;
+//  &:before {
+//    margin-top: 0;
+//  }
+//}
+
+.row {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
+}
+
+.column {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+}
 
 .hide {
   display: none !important;
