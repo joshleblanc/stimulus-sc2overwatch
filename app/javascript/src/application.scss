@@ -18,14 +18,14 @@ $mdc-theme-on-surface: white;
 }
 
 .mdc-card__media.mdc-card__media--16-9.game-player-card-media {
-  @media(min-width: map-get($mdc-layout-grid-breakpoints, 'desktop')) {
+  @media(min-width: 1441px) {
     display: flex;
     flex-direction: column;
-    flex: 1;
+    flex: 0 0 30%;
   }
   width: 100%;
   &:before {
-    margin-top: 20%;
+    margin-top: 30%;
   }
 }
 

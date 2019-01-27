@@ -5,14 +5,16 @@
        data-mdc-auto-init="MDCRipple">
       <div class="mdc-card__media mdc-card__media--16-9 game-player-card-media" style='background-image: url("/img/maps/<%= game_player.game.map_image %>")'></div>
       <div class="card-content mdc-theme--on-surface column">
-        <h1 class="mdc-typography--headline6">
+        <span class="mdc-typography--headline6">
+          <%= game_player.player.name %>
+        </span>
+        <div class="mdc-typography--caption">
           <%= render 'components/flag', id: game_player.player.server %>
           <%= image_tag("races/ico_race_#{game_player.race.downcase}.png") %>
-          <%= game_player.player.name %>
-        </h1>
-        <div class="mdc-typography-body1"><%= game_player.game.map %></div>
-        <div class="mdc-typography-body1"><%= game_player.game.format %> <%= game_player.game.game_type %></div>
-        <div class="mdc-typography-body1"><%= game_player.game.date %></div>
+        </div>
+        <div class="mdc-typography-body2"><%= game_player.game.map %></div>
+        <div class="mdc-typography-body2"><%= game_player.game.format %> <%= game_player.game.game_type %></div>
+        <div class="mdc-typography-body2"><%= game_player.game.date %></div>
         <div class="mdc-typography--caption"><%= game_player.guilty_count %> think they're hacking</div>
         <div class="mdc-typography--caption"><%= game_player.innocent_count %> think they aren't hacking</div>
       </div>
