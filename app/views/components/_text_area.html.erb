@@ -1,5 +1,5 @@
-<div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth input" data-mdc-auto-init="MDCTextField">
-  <%= text_area_tag(name, nil, options) %>
+<div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth input" data-target="<%= data_target %>">
+  <%= text_area_tag(name, nil, { "data-action": data_action, class: "mdc-text-field__input" }) %>
   <div class="mdc-notched-outline">
     <div class="mdc-notched-outline__leading"></div>
     <div class="mdc-notched-outline__notch">
