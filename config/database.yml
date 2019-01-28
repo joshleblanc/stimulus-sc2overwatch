@@ -17,6 +17,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  host: 127.0.0.1
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -82,6 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: stimulus_sc2overwatch_prod
-  username: stimulus-sc2
+  database: gre_stimulus_sc2overwatch_prod
+  username: gre_stimulus-sc2
   password: <%= Rails.application.credentials.config[:db_pass] %>
