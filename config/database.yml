@@ -82,6 +82,6 @@ test:
 #
 production:
   <<: *default
-  database: stimulus-sc2overwatch_production
-  username: stimulus-sc2overwatch
-  password: <%= ENV['STIMULUS-SC2OVERWATCH_DATABASE_PASSWORD'] %>
+  database: stimulus_sc2overwatch_prod
+  username: stimulus-sc2
+  password: <%= Rails.application.credentials.config[:db_pass] %>
