@@ -8,9 +8,9 @@ class GamesController < ApplicationController
     when :success
       flash[:notice] = "Successfully reported player"
     when :already_voted
-      flash[:alert] = "You've already reported this player"
+      flash[:notice] = "You've already reported this player"
     else
-      flash[:alert] = "Something's gone horrible wrong"
+      flash[:notice] = "Something's gone horrible wrong"
     end
     redirect_to @game.game_players.find_by(player_id: params[:player])
   end

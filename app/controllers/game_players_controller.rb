@@ -91,11 +91,11 @@ class GamePlayersController < ApplicationController
         winner: params[:winner]
     )
     when :already_voted
-      flash[:alert] = "You've already reported this player"
+      flash[:notice] = "You've already reported this player"
     when :success
       flash[:notice] = "Successfully reported player"
     else
-      flash[:alert] = "Wrong winner selected"
+      flash[:notice] = "Wrong winner selected"
     end
 
     redirect_to @game_player
