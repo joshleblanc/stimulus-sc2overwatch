@@ -2,7 +2,7 @@ class GamePlayersController < ApplicationController
   before_action :set_game_player, only: [:show]
 
   def index
-    @game_players = GamePlayer.where(is_accused: true).order(:updated_at).limit(25)
+    @game_players = GamePlayer.where(is_accused: true).order("created_at DESC")
   end
 
   # GET /game_players/1
