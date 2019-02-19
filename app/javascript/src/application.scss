@@ -11,6 +11,11 @@ $mdc-theme-on-surface: white;
   background-color: $mdc-theme-background;
 }
 
+.turbolinks-progress-bar {
+  background-color: $mdc-theme-secondary;
+}
+
+
 @media (min-width: $mdc-snackbar-mobile-breakpoint) {
   .snackbar {
     @include mdc-snackbar-position-leading;
