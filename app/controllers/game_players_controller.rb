@@ -31,12 +31,13 @@ class GamePlayersController < ApplicationController
         next
       end
       replay_info = replay.replay_info(upload_status['replay_id'], :players, :map)
-
-      map_image_path = File.join(Rails.root, 'public/img/maps/', replay_info['map']['map_image'])
-      unless File.exists?(map_image_path)
-        map_url = URI.parse("http://sc2replaystats.com/images/maps/large/#{replay_info['map']['map_image']}")
-        File.open(map_image_path, 'wb') do |f|
-          f.write(Net::HTTP.get(map_url))
+      if replay_info['map']['maps_id'] != 0
+        map_image_path = File.join(Rails.root, 'public/img/maps/', replay_info['map']['map_image'])
+        unless File.exists?(map_image_path)
+          map_url = URI.parse("http://sc2replaystats.com/images/maps/large/#{replay_info['map']['map_image']}")
+          File.open(map_image_path, 'wb') do |f|
+            f.write(Net::HTTP.get(map_url))
+          end
         end
       end
 
