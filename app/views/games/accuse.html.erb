@@ -1,5 +1,5 @@
 <div data-controller="accusation" data-accusation-form-valid="false">
-  <%= form_tag(update_game_player_path(game_id: @game.id), remote: true, "data-target": "accusation.form") do %>
+  <%= form_tag(update_game_path(@game), "data-target": "accusation.form") do %>
     <div class="mdc-layout-grid">
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell">

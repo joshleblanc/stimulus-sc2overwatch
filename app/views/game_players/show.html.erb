@@ -5,7 +5,7 @@
   </div>
   <div class="mdc-layout-grid__cell">
     <div data-controller="vote" data-vote-form-valid="false" class="mdc-theme--on-surface">
-      <%= form_tag(update_game_player_path @game_player) do%>
+      <%= form_tag(game_player_path(@game_player), method: :put) do%>
         <h2 class="mdc-typography--headline5">Choose your verdict</h2>
         <a href="<%= @game_player.game.url %>" target="_blank" class="mdc-button" data-mdc-auto-init="MDCRipple">
           <span class="mdc-button__label">Download the replay</span>

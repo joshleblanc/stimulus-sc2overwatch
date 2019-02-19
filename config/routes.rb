@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  root to: 'game_players#index'
+  root to: redirect('game_players')
 
-  get 'game_players/accuse/:game_id', to: 'game_players#accuse', as: :accuse_player
-  post 'game_players/accuse/:game_id', to: 'game_players#update', as: :update_game_player
+  get 'games/:id/accuse', to: 'games#accuse', as: :accuse_player
+  post 'games/:id/accuse', to: 'games#update', as: :update_game
 
   get 'players/search', to: "players#search", as: :search_players
-  resources :game_players, only: [:index, :show, :create]
+  resources :game_players
   resources :players, only: [:index, :show]
 end

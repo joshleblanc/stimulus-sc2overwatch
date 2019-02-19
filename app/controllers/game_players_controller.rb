@@ -1,5 +1,5 @@
 class GamePlayersController < ApplicationController
-  before_action :set_game_player, only: [:show]
+  before_action :set_game_player, only: [:show, :update]
 
   def index
     @game_players = GamePlayer.where(is_accused: true).order("created_at DESC")
@@ -8,10 +8,6 @@ class GamePlayersController < ApplicationController
   # GET /game_players/1
   # GET /game_players/1.json
   def show
-  end
-
-  def accuse
-    @game = Game.find(params[:game_id])
   end
 
   def create
@@ -84,41 +80,26 @@ class GamePlayersController < ApplicationController
       break
     end
     if result
-      flash[:notice] = "Replay uploaded successfully"
-      redirect_to accuse_player_path(game_id: @game.id)
+      redirect_to accuse_player_path(id: @game.id)
     else
       render nothing: true, status: 500
     end
   end
 
   def update
-    game = Game.find(params[:game_id])
-    game_player = GamePlayer.find_by(game: game, player_id: params[:player])
-    if game_player.voters.map(&:ip).include? request.remote_ip
-      flash[:notice] = "You've already voted on this game"
-      redirect_to game_player
+    case @game_player.accuse(
+        ip: request.remote_ip,
+        winner: params[:winner]
+    )
+    when :already_voted
+      flash[:notice] = "You've already reported this player"
+    when :success
+      flash[:notice] = "Successfully reported player"
     else
-      if game_player.evidence.nil?
-        flash[:notice] = "Successfully reported player"
-        game_player.update(
-            is_accused: true,
-            guilty_count: game_player.guilty_count + 1,
-            evidence: params[:evidence]
-        )
-      else
-        flash[:notice] = "this game has already been submitting. Your vote has been counted"
-        game_player.update(
-            is_accused: true,
-            guilty_count: game_player.guilty_count + 1,
-        )
-      end
-
-      Voter.create(
-          ip: request.remote_ip,
-          game_player: game_player
-      )
-      redirect_to player_path(game_player.player)
+      flash[:notice] = "Wrong winner selected"
     end
+
+    redirect_to @game_player
   end
 
   private
