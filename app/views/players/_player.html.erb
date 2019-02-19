@@ -1,0 +1,13 @@
+<%= render 'components/card/card' do %>
+  <%= render 'components/card/primary_action', link: player_path(player) do %>
+    <%= render 'components/card/content' do %>
+      <h2 class="mdc-typography--headline5">
+        <%= render 'components/flag', id: player.server %>
+        <%= player.name %>
+      </h2>
+      <span class="mdc-typography--caption mdc-theme--text-hint-on-dark">Last Report: <%= player.last_report %></span>
+      <br />
+      <span class="mdc-typography--caption mdc-theme--text-hint-on-dark">Reported <%= player.num_accused %> times</span>
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,18 +1,4 @@
 <h1 class="mdc-typography--headline6 mdc-theme--on-surface">Reported Players</h1>
 <div class="mdc-layout-grid__inner">
-  <% @players.map do |p| %>
-    <%= render 'components/card/card' do %>
-      <%= render 'components/card/primary_action', link: player_path(p) do %>
-        <%= render 'components/card/content' do %>
-          <h2 class="mdc-typography--headline5">
-            <%= render 'components/flag', id: p.server %>
-            <%= p.name %>
-          </h2>
-          <span class="mdc-typography--caption mdc-theme--text-hint-on-dark">Last Report: <%= p.last_report %></span>
-          <br />
-          <span class="mdc-typography--caption mdc-theme--text-hint-on-dark">Reported <%= p.num_accused %> times</span>
-        <% end %>
-      <% end %>
-    <% end %>
-  <% end %>
+  <%= render @players %>
 </div>
