@@ -4,7 +4,8 @@ tasks:
   - before:
       pg_start.sh
   - init:
-      bundle install
+      bundle install &&
+      yarn install
   - command:
-      RACK_ENV=gitpod bundle exec rake db:create &&
-      RACK_ENV=gitpod bundle exec rake db:migrate
+      RAILS_ENV=gitpod bundle exec rake db:create &&
+      RAILS_ENV=gitpod bundle exec rake db:migrate

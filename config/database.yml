@@ -24,9 +24,14 @@ default: &default
   username: postgres
   password: postgres
 
-development:
+development: &development
   <<: *default
   database: stimulus-sc2overwatch_development
+
+gitpod:
+  <<: *development
+  username: gitpod
+  password: gitpod
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

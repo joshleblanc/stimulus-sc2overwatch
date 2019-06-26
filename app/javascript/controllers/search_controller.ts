@@ -33,7 +33,7 @@ export default class extends Controller {
         if(e.target.value.length === 0) {
             this.step = 0;
         } else {
-            this.searchTimeout = setTimeout(this.search, 500);
+            this.searchTimeout = setTimeout(this.search, 100);
         }
     }
 

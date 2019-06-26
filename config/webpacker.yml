@@ -29,12 +29,12 @@ default: &default
     - .jpeg
     - .jpg
 
-development:
+development: &development
   <<: *default
   compile: true
 
   # Reference: https://webpack.js.org/configuration/dev-server/
-  dev_server:
+  dev_server: &development_dev_server
     https: false
     host: localhost
     port: 3035
@@ -52,6 +52,11 @@ development:
     watch_options:
       ignored: /node_modules/
 
+gitpod:
+  <<: *development
+  dev_server:
+    <<: *development_dev_server
+    public: https://3035-f00e9d5a-d377-41a2-915a-68ae984b5f7a.ws-us0.gitpod.io/
 
 test:
   <<: *default

@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 2019_01_16_012755) do
     t.integer "apm"
     t.integer "team"
     t.string "color"
-    t.integer "guilty_count"
-    t.integer "innocent_count"
+    t.integer "guilty_count", default: 0
+    t.integer "innocent_count", default: 0
     t.bigint "game_id"
     t.bigint "player_id"
     t.datetime "created_at", null: false

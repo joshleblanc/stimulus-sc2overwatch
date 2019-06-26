@@ -8,8 +8,8 @@ RUN apt-get update && apt-get install -y \
         libsodium-dev \
     && apt-get clean && rm -rf /var/cache/apt/* && rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
 
-# Setup postgres server for user gitpod
-USER gitpod
+# Setup postgres server for user postgres
+USER postgres
 ENV PATH="/usr/lib/postgresql/10/bin:$PATH"
 RUN mkdir -p ~/pg/data; mkdir -p ~/pg/scripts; mkdir -p ~/pg/logs; mkdir -p ~/pg/sockets; initdb -D pg/data/
 RUN echo '#!/bin/bash\n\
