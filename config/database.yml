@@ -88,6 +88,4 @@ test:
 #
 production:
   <<: *default
-  database: gre_stimulus_sc2overwatch_prod
-  username: gre_stimulus-sc2
-  password: <%= Rails.application.credentials.config[:db_pass] %>
+  url: <%= ENV['DATABASE_URL'] %>
