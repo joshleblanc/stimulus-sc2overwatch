@@ -1,23 +1,17 @@
-FROM gitpod/workspace-full:latest
+FROM ruby:2.5
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+RUN mkdir /myapp
+WORKDIR /myapp
+COPY Gemfile /myapp/Gemfile
+COPY Gemfile.lock /myapp/Gemfile.lock
+RUN bundle install
+COPY . /myapp
 
-# Install prereqs
-USER root
-RUN apt-get update && apt-get install -y \
-        postgresql \
-        postgresql-contrib \
-        libsodium-dev \
-    && apt-get clean && rm -rf /var/cache/apt/* && rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
+# Add a script to be executed every time the container starts.
+COPY entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]
+EXPOSE 3000
 
-# Setup postgres server for user postgres
-USER postgres
-ENV PATH="/usr/lib/postgresql/10/bin:$PATH"
-RUN mkdir -p ~/pg/data; mkdir -p ~/pg/scripts; mkdir -p ~/pg/logs; mkdir -p ~/pg/sockets; initdb -D pg/data/
-RUN echo '#!/bin/bash\n\
-pg_ctl -D ~/pg/data/ -l ~/pg/logs/log -o "-k ~/pg/sockets" start' > ~/pg/scripts/pg_start.sh
-RUN echo '#!/bin/bash\n\
-pg_ctl -D ~/pg/data/ -l ~/pg/logs/log -o "-k ~/pg/sockets" stop' > ~/pg/scripts/pg_stop.sh
-RUN chmod +x ~/pg/scripts/*
-ENV PATH="$HOME/pg/scripts:$PATH"
-ENV RAILS_ENV=development
-
-USER root
+# Start the main process.
+CMD ["rails", "server", "-b", "0.0.0.0"]
