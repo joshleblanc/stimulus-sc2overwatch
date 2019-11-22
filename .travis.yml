@@ -14,7 +14,7 @@ before_install:
 before_deploy:
   - cp config/database.yml.bak config/database.yml
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t horizonshadow/sc2overwatch .
+  - echo ""$AWS_ACCESS_KEY_ID" && docker build --build-arg AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID --build-arg AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY --build-arg FOG_DIRECTORY=sc2overwatch -t horizonshadow/sc2overwatch .
 before_script:
   - cp config/database.yml config/database.yml.bak
   - cp config/database.yml.travis config/database.yml
@@ -23,6 +23,6 @@ script:
   - bundle exec rails db:migrate RAILS_ENV=test
 deploy:
   provider: script
-  script: docker build --build-arg AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID --build-arg AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY --build-arg FOG_DIRECTORY=sc2overwatch -t horizonshadow/sc2overwatch .
+  script: docker push horizonshadow/secret-santa && kubectl rollout restart deployment/secret-santa
   on:
     branch: master
