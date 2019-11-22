@@ -22,6 +22,9 @@ ARG FOG_PROVIDER
 ENV AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
 ENV AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
 ENV FOG_DIRECTORY=$FOG_DIRECTORY
+RUN echo "$AWS_ACCESS_KEY_ID"
+RUN echo "$AWS_SECRET_ACCESS_KEY"
+RUN echo "$FOG_DIRECTORY"
 RUN rake assets:precompile
 
 # Add a script to be executed every time the container starts.
