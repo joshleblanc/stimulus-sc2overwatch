@@ -12,9 +12,11 @@ before_install:
   - "sudo snap connect doctl:kube-config"
   - "doctl kubernetes cluster kubeconfig save $KUBERNETES_CLUSTER"
 before_deploy:
+  - cp config/database.yml.bak config/database.yml
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t horizonshadow/sc2overwatch .
 before_script:
+  - cp config/database.yml config/database.yml.bak
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database travis_ci_test;' -U postgres
 script:
