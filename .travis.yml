@@ -3,8 +3,7 @@ rvm:
   - 2.5
 services:
   - docker
-addons:
-  - postgresql: 10.4
+  - postgresql
 before_install:
   - "curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl"
   - "chmod +x ./kubectl"
