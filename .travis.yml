@@ -23,6 +23,6 @@ script:
   - bundle exec rails db:migrate RAILS_ENV=test
 deploy:
   provider: script
-  script: docker push horizonshadow/overwatch && kubectl rollout restart deployment/sc2overwatch
+  script: docker push horizonshadow/sc2overwatch && kubectl rollout restart deployment/sc2overwatch
   on:
     branch: master
