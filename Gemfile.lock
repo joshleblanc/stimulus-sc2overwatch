@@ -150,7 +150,7 @@ GEM
     pg (1.1.4-x64-mingw32)
     pg (1.1.4-x86-mingw32)
     public_suffix (3.0.3)
-    puma (3.12.0)
+    puma (3.12.2)
     rack (2.0.6)
     rack-proxy (0.6.5)
       rack
@@ -269,7 +269,7 @@ DEPENDENCIES
   fog-aws
   jbuilder (~> 2.5)
   pg (>= 0.18, < 2.0)
-  puma (~> 3.11)
+  puma (~> 3.12)
   rails (~> 5.2.2)
   sass-rails (~> 5.0)
   sc2replaystats!
