@@ -34,3 +34,5 @@ yarn-debug.log*
 public/img/maps/*.jpg
 
 .idea/*
+
+coverage
