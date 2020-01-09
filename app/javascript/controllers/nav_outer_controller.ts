@@ -6,7 +6,7 @@ import { Controller } from 'stimulus';
 // because the app content can't be in the nav-controller so it isn't cached
 export default class extends Controller {
     static targets = [ "content", "inner" ];
-    readonly contentTarget: HTMLMainElement;
+    readonly contentTarget: HTMLElement;
 
     initialize() {
         if(localStorage.getItem('drawerOpen') === "true") {
