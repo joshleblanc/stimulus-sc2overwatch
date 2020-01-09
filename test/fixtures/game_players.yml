@@ -5,7 +5,7 @@ one:
   winner: false
   evidence: MyText
   clan: MyString
-  race: MyString
+  race: z
   mmr: 1
   division: MyString
   server_rank: 1
@@ -23,7 +23,7 @@ two:
   winner: false
   evidence: MyText
   clan: MyString
-  race: MyString
+  race: p
   mmr: 1
   division: MyString
   server_rank: 1

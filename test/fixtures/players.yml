@@ -3,11 +3,11 @@
 one:
   bnet_url: MyString
   name: MyString
-  server: MyString
+  server: us
   bnet_id: 1
 
 two:
   bnet_url: MyString
   name: MyString
-  server: MyString
+  server: eu
   bnet_id: 1
