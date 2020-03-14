@@ -3,11 +3,11 @@
     <a href="<%= game_player_path(game_player) %>"
        class="mdc-card__primary-action row"
        data-mdc-auto-init="MDCRipple">
-      <div class="mdc-card__media mdc-card__media--16-9 game-player-card-media" style='background-image: url("<%= url_for(game_player.game.map.image) %>")'></div>
+      <div class="mdc-card__media mdc-card__media--16-9 game-player-card-media" style='background-image: url("<%= url_for(game_player.game.map.image) if game_player.game.map.image.attached? %>")'></div>
       <div class="card-content mdc-theme--on-surface column">
         <span class="mdc-typography--headline6">
           <%= game_player.player.name %>
-        </span>
+        </span>ee
         <div class="mdc-typography--caption">
           <%= render 'components/flag', id: game_player.player.server %>
           <%= image_tag("races/ico_race_#{game_player.race.downcase}.png") %>

@@ -1,21 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  map: MyString
+  map: one
   date: 2019-01-15 21:20:26
   url: MyString
   format: MyString
   game_type: MyString
   season_id: 1
   replay_version: MyString
-  map_image: MyString
 
 two:
-  map: MyString
+  map: two
   date: 2019-01-15 21:20:26
   url: MyString
   format: MyString
   game_type: MyString
   season_id: 1
   replay_version: MyString
-  map_image: MyString
