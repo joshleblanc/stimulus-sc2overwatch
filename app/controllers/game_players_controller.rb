@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class GamePlayersController < ApplicationController
   before_action :set_game_player, only: [:show, :update]
 
@@ -27,27 +29,26 @@ class GamePlayersController < ApplicationController
         next
       end
       replay_info = replay.replay_info(upload_status['replay_id'], :players, :map)
-      if replay_info['map']['maps_id'] != 0
-        map_image_path = File.join(Rails.root, 'public/img/maps/', replay_info['map']['map_image'])
-        unless File.exists?(map_image_path)
-          map_url = URI.parse("http://sc2replaystats.com/images/maps/large/#{replay_info['map']['map_image']}")
-          File.open(map_image_path, 'wb') do |f|
-            f.write(Net::HTTP.get(map_url))
-          end
-        end
-      end
 
       @game = Game.where(id: replay_info['replay_id']).first_or_create(
           id: replay_info['replay_id'],
-          map: replay_info['map']['map_name'],
           date: replay_info['replay_date'],
           url: replay_info['replay_url'],
           format: replay_info['format'],
           game_type: replay_info['game_type'],
           season_id: replay_info['season_id'],
           replay_version: replay_info['replay_version'],
-          map_image: replay_info['map']['map_image']
       )
+
+      if replay_info['map']['maps_id'] != 0 && !replay_info['map']['map_image'].nil?
+          map_url = "http://sc2replaystats.com/images/maps/large/#{replay_info['map']['map_image']}"
+          open(map_url) do |f|
+            map = Map.find_or_create_by(name: replay_info['map']['map_name'])
+            @game.map = map
+            @game.map.image.attach(io: f, filename: replay_info['map']['map_image'])
+          end
+      end
+
       replay_info['players'].each do |data|
         player = Player.where(id: data['players_id']).first_or_create(
             id: data['players_id'],

@@ -1,6 +1,7 @@
 class Game < ApplicationRecord
   has_many :game_players
   has_many :players, through: :game_players
+  belongs_to :map
 
   def winners
     game_players.select(&:winner)
