@@ -62,3 +62,4 @@ gem "serviceworker-rails", "~> 0.5.5"
 gem "asset_sync"
 gem "fog-aws"
 gem 'aws-sdk-s3', require: false
+gem 'activeadmin'

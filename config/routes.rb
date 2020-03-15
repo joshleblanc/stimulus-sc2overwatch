@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   root to: redirect('game_players')
 
   get 'games/:id/accuse', to: 'games#accuse', as: :accuse_player
