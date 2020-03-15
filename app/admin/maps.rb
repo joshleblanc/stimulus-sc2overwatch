@@ -31,7 +31,7 @@ ActiveAdmin.register Map do
     attributes_table do
       row :name
       row :image do |ad|
-        image_tag url_for(ad.image)
+        tag 'img', src: url_for(ad.image)
       end
     end
     active_admin_comments
