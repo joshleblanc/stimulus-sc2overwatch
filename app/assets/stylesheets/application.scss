@@ -1,4 +1,8 @@
-@import "./*";
+@import "./game_players";
+@import "./games";
+@import "./players";
+@import "./replay";
+@import "./voters";
 
 body {
   margin: 0;

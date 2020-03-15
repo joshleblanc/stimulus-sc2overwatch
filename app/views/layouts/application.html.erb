@@ -1,36 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>SC2 Overwatch</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<head>
+  <title>SC2 Overwatch</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true%>
-  <link rel="manifest" href="/manifest.json" />
-<meta name="apple-mobile-web-app-capable" content="yes"></head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+  <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+  <link rel="manifest" href="/manifest.json"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
 
-  <body class="mdc-typography mdc-theme--background">
-    <div data-controller="mdc-auto-init" ></div>
-    <%= render 'nav/nav' %>
-    <div class="mdc-top-app-bar--fixed-adjust page">
-      <%= render "drawer/drawer" %>
-      <section class="mdc-layout-grid main-content">
-        <%= yield %>
-      </section>
-    </div>
+<body class="mdc-typography mdc-theme--background">
+<div data-controller="mdc-auto-init"></div>
+<%= render 'nav/nav' %>
+<div class="mdc-top-app-bar--fixed-adjust page">
+  <%= render "drawer/drawer" %>
+  <section class="mdc-layout-grid main-content">
+    <%= yield %>
+  </section>
+</div>
 
-    <%= render "upload_modal/upload_modal" %>
-    <%= render "components/snackbar/snackbar" %>
-    <script async defer src="https://cdn.simpleanalytics.io/hello.js"></script>
-    <noscript><img src="https://api.simpleanalytics.io/hello.gif" alt=""></noscript>
-  </body>
+<%= render "upload_modal/upload_modal" %>
+<%= render "components/snackbar/snackbar" %>
+<script async defer src="https://cdn.simpleanalytics.io/hello.js"></script>
+<noscript><img src="https://api.simpleanalytics.io/hello.gif" alt=""></noscript>
+</body>
 
 
 </html>
