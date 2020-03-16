@@ -31,7 +31,11 @@ ActiveAdmin.register Map do
     attributes_table do
       row :name
       row :image do |ad|
-        tag 'img', src: url_for(ad.image)
+        if ad.image.attached?
+          tag 'img', src: url_for(ad.image)
+        else
+          p "No image uploaded"
+        end
       end
     end
     active_admin_comments
