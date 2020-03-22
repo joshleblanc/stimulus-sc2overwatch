@@ -2,7 +2,7 @@ class PlayersController < ApplicationController
   before_action :set_player, only: [:show]
 
   def index
-    @players = Player.accused_players.all.sort_by(&:num_accused)
+    @players = Player.accused_players.all.sort_by(&:num_accused).reverse
   end
 
   def search
