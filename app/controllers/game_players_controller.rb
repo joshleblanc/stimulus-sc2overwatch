@@ -40,11 +40,11 @@ class GamePlayersController < ApplicationController
           replay_version: replay_info['replay_version'],
       )
 
+      map = Map.find_or_create_by(name: replay_info['map']['map_name'])
+      @game.update(map: map)
       if replay_info['map']['maps_id'] != 0 && !replay_info['map']['map_image'].nil?
           map_url = "http://sc2replaystats.com/images/maps/large/#{replay_info['map']['map_image']}"
           open(map_url) do |f|
-            map = Map.find_or_create_by(name: replay_info['map']['map_name'])
-            @game.map = map
             @game.map.image.attach(io: f, filename: replay_info['map']['map_image'])
           end
       end

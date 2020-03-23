@@ -3,6 +3,12 @@ class GamePlayer < ApplicationRecord
   belongs_to :player
   has_many :voters
 
+  def game_map_image
+    if game.map&.image.attached?
+      game.map.image
+    end
+  end
+
   def accuse(ip:, new_evidence: nil, winner: nil)
     if voters.map(&:ip).include? ip
       :already_voted
