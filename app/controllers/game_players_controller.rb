@@ -58,7 +58,7 @@ class GamePlayersController < ApplicationController
             name: data['player']['players_name']
         )
         if data['player']['players_name'] != player.name
-          player.update(name: data['players_name'])
+          player.update(name: data['player']['players_name'])
         end
         GamePlayer.where(game: @game, player: player).first_or_create(
             player: player,
