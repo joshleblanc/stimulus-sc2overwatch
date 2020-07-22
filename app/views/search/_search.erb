@@ -4,11 +4,11 @@
   <header class="mdc-top-app-bar mdc-top-app-bar--fixed">
     <div class="mdc-top-app-bar__row">
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start" data-mdc-auto-init="MDCTextField">
-        <div class="mdc-text-field mdc-text-field--fullwidth mdc-theme--primary-bg">
+        <label class="mdc-text-field mdc-text-field--fullwidth mdc-text-field--no-label" for="search-input">
+          <span class="mdc-text-field__ripple"></span>
           <input id="search-input" class="mdc-text-field__input search-text-field" type="text" data-target="search.searchInput" data-action="input->search#searchChange">
-          <label for="search-input" class="mdc-floating-label mdc-theme--on-surface">Search</label>
-          <div class="mdc-line-ripple"></div>
-        </div>
+          <span class="mdc-line-ripple"></span>
+        </label>
         <a class="material-icons mdc-top-app-bar__action-item mdc-icon-button" data-action="click->nav#toggleSearch">close</a>
       </section>
     </div>
