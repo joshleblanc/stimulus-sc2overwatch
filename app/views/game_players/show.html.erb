@@ -7,7 +7,7 @@
     <div data-controller="vote" data-vote-form-valid="false" class="mdc-theme--on-surface">
       <%= form_tag(game_player_path(@game_player), method: :put) do%>
         <h2 class="mdc-typography--headline5">Choose your verdict</h2>
-        <a href="<%= @game_player.game.url %>" target="_blank" class="mdc-button" data-mdc-auto-init="MDCRipple">
+        <a href="<%= @game_player.game.url %>" target="_blank" class="mdc-button" data-controller="ripple">
           <span class="mdc-button__label">Download the replay</span>
         </a>
         <h1 class="mdc-typography--headline6">Evidence</h1>
@@ -28,7 +28,7 @@
             text: "Verdict",
             data_target: "vote.verdict",
         } %>
-        <button class="mdc-button" type="submit" data-target="vote.submit" data-mdc-auto-init="MDCRipple">
+        <button class="mdc-button" type="submit" data-target="vote.submit" data-controller="ripple">
           <span class="mdc-button__label">Submit</span>
         </button>
       <% end %>
