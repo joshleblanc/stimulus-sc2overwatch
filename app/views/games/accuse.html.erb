@@ -6,7 +6,7 @@
           <h1 class="mdc-typography--headline5 mdc-theme--on-surface">Accuse a player</h1>
           <%= render 'components/select',
               name: "player",
-              option_tags: options_from_collection_for_select(@game.players, "id", "name"),
+              option_tags: @game.players.map { |p| { value: p.id, label: p.name }},
               text: "Pick a player",
               data_target: "accusation.playerSelect",
               data_action: "change->accusation#playerChanged"

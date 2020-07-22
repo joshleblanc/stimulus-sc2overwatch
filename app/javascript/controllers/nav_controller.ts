@@ -17,7 +17,7 @@ export default class extends Controller {
         this.drawer.listen('MDCDrawer:closed', () => {
             this.drawerOpen = false;
         });
-        this.drawer.list_.singleSelection = true;
+        l.singleSelection = true;
         this.showNavbar();
         this.setDrawerState();
         window.addEventListener('keyup', e => {

@@ -55,7 +55,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'webpacker', '~> 3.5'
+gem 'webpacker', '~> 5.1.1'
 gem 'sc2replaystats', git: 'https://github.com/HorizonShadow/ruby-sc2replaystats.git'
 # Added at 2019-01-28 18:37:12 -0400 by desktop-d449p1p\horiz:
 gem "serviceworker-rails", "~> 0.5.5"

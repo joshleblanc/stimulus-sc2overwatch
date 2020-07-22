@@ -1,24 +1,28 @@
-$mdc-theme-primary: #2196f3;
-$mdc-theme-secondary: #c86f00;
-$mdc-theme-on-primary: white;
-$mdc-theme-on-secondary: white;
-$mdc-theme-background: #303030;
-$mdc-theme-surface: #424242;
-$mdc-theme-on-surface: white;
-@import "~material-components-web/material-components-web";
+@use "@material/theme" with (
+  $primary: #2196f3,
+  $secondary: #c86f00,
+  $on-primary: white,
+  $on-secondary: white,
+  $surface: #424242,
+  $background: #303030,
+  $on-surface: white
+);
+@use "@material/snackbar" as snackbar;
+@import "material-components-web/material-components-web";
+
+
 
 .mdc-select option {
-  background-color: $mdc-theme-background;
+  background-color: theme.$background;
 }
 
 .turbolinks-progress-bar {
-  background-color: $mdc-theme-secondary;
+  background-color: theme.$secondary;
 }
 
-
-@media (min-width: $mdc-snackbar-mobile-breakpoint) {
+@media (min-width: snackbar.$mobile-breakpoint) {
   .snackbar {
-    @include mdc-snackbar-position-leading;
+    @include snackbar.position-leading;
   }
 }
 
