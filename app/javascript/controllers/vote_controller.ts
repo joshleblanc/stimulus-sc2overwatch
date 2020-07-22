@@ -11,7 +11,9 @@ export default class extends Controller {
 
     initialize() {
         this.player = new select.MDCSelect(this.playerTarget);
+        this.player.listen("MDCSelect:change", () => this.setFormValid());
         this.verdict = new select.MDCSelect(this.verdictTarget);
+        this.verdict.listen("MDCSelect:change", () => this.setFormValid());
         this.setSubmitButtonState();
     }
 
@@ -26,6 +28,7 @@ export default class extends Controller {
 
     playerChanged() {
         this.setFormValid();
+        console.log("player changed");
     }
 
     verdictChanged() {

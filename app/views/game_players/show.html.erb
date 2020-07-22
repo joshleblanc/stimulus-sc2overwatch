@@ -17,7 +17,6 @@
             name: :player,
             option_tags: @game_player.game.players.map { |p| { value: p.id, label: p.name }},
             text: "Pick a player",
-            data_action: "change->vote#playerChanged",
             data_target: "vote.player"
         } %>
         <%= render 'components/select', {
@@ -28,7 +27,6 @@
             ],
             text: "Verdict",
             data_target: "vote.verdict",
-            data_action: "change->vote#verdictChanged"
         } %>
         <button class="mdc-button" type="submit" data-target="vote.submit" data-mdc-auto-init="MDCRipple">
           <span class="mdc-button__label">Submit</span>
