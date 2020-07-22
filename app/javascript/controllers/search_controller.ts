@@ -7,7 +7,7 @@ export default class extends Controller {
     readonly stepTargets: Array<HTMLElement>;
     readonly searchResultListTarget: HTMLElement;
     readonly hasSearchResultListTarget: boolean;
-    searchTimeout: number;
+    searchTimeout: number ;
 
     search = async () => {
         const query = this.searchInputTarget.value;
