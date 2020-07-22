@@ -15,6 +15,7 @@ export default class extends Controller {
 
     connect() {
         this.select = new select.MDCSelect(this.playerSelectTarget);
+        this.select.listen("MDCSelect:changed", () => this.setFormValid());
         this.evidence = new textField.MDCTextField(this.evidenceTarget);
         this.setSubmitButtonState();
     }

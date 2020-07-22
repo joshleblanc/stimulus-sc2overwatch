@@ -8,8 +8,7 @@
               name: "player",
               option_tags: @game.players.map { |p| { value: p.id, label: p.name }},
               text: "Pick a player",
-              data_target: "accusation.playerSelect",
-              data_action: "change->accusation#playerChanged"
+              data_target: "accusation.playerSelect"
           %>
           <%= render 'components/text_area', {
               name: "evidence",
