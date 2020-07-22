@@ -1,7 +1,8 @@
 <% data_action ||= nil %>
 <div class="mdc-select mdc-select--outlined input"
      data-target="<%= data_target %>"
-     data-mdc-auto-init="MDCSelect">
+     data-controller="select">
+  <input name="<%= name %>" data-target="select.field" class="d-hidden" />
   <div class="mdc-select__anchor">
     <div class="mdc-notched-outline">
       <span class="mdc-notched-outline__leading"></span>
