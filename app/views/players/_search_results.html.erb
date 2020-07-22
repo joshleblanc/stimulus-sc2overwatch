@@ -5,13 +5,14 @@
     were found
   </div>
 <% else %>
-  <ul class="mdc-list" data-target="nav.searchResultList">
+  <ul class="mdc-list" data-target="nav.searchResultList" data-mdc-auto-init="MDCList">
     <% @players.map do |p| %>
       <a href="<%= player_path(p) %>" class="mdc-list-item" >
+        <span class="mdc-list-item__ripple"></span>
         <span class="mdc-list-item__graphic">
           <%= render 'components/flag', id: p.server %>
         </span>
-        <span class="mdc-list-item__text"><%= p.name %></span>
+        <label class="mdc-list-item__text"><%= p.name %></label>
       </a>
       <li role="separator" class="mdc-list-divider"></li>
   <% end %>
