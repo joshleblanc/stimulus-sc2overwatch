@@ -23,18 +23,6 @@ jobs:
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.6.x
-    - name: Build and test with Rake
-      run: |
-        sudo apt-get install libpq-dev
-        yarn install
-        gem install bundler
-        bundle install --jobs 4 --retry 3
-        bundle exec rake db:setup
-        bundle exec rake
-    - name: Send code coverage report
-      uses: aktions/codeclimate-test-reporter@v1
-      with:
-        codeclimate-test-reporter-id: ${{ secrets.testId }}
     - name: Build the Docker image
       run: docker build . --file Dockerfile --build-arg AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} --build-arg AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} --build-arg FOG_DIRECTORY=sc2overwatch --tag docker.pkg.github.com/joshleblanc/sc2overwatch/sc2overwatch:$(date +%s) --tag docker.pkg.github.com/joshleblanc/sc2overwatch/sc2overwatch:latest
     - name: Login to registry
