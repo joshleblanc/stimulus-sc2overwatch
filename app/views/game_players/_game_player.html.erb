@@ -3,7 +3,7 @@
     <a href="<%= game_player_path(game_player) %>"
        class="mdc-card__primary-action row"
        data-controller="ripple">
-      <div class="mdc-card__media mdc-card__media--16-9 game-player-card-media" style='background-image: url("<%= url_for game_player.game_map_image %>")'></div>
+      <div class="mdc-card__media mdc-card__media--16-9 game-player-card-media" style='background-image: url("<%= url_for(game_player.game_map_image) if game_player.game_map_image %>")'></div>
       <div class="card-content mdc-theme--on-surface column">
         <span class="mdc-typography--headline6">
           <%= game_player.player.name %>
