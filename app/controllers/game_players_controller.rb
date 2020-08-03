@@ -4,7 +4,14 @@ class GamePlayersController < ApplicationController
   before_action :set_game_player, only: [:show, :update]
 
   def index
-    @game_players = GamePlayer.includes(:game, :player).where(is_accused: true).order("created_at DESC")
+    @game_players = GamePlayer.includes(
+      game: {
+        map: {
+          image_attachment: :blob
+        }
+      },
+      player: []
+    ).where(is_accused: true).order("created_at DESC")
   end
 
   # GET /game_players/1
