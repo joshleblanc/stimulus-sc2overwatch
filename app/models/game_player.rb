@@ -4,9 +4,8 @@ class GamePlayer < ApplicationRecord
   has_many :voters
 
   def game_map_image
-    if Game.includes([:map]).find_by(id: game_id).map&.image.attached?
-      game.map.image
-    end
+    image = game.map&.image
+    image if image&.attached?
   end
 
   def accuse(ip:, new_evidence: nil, winner: nil)
