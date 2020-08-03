@@ -10,7 +10,7 @@ if defined?(AssetSync)
     # config.aws_signature_version = 4
     #
     # Change host option in fog (only if you need to)
-    config.fog_host = "sfo2.cdn.digitaloceanspaces.com"
+    config.fog_host = "sfo2.digitaloceanspaces.com"
     #
     # Change port option in fog (only if you need to)
     # config.fog_port = "9000"
