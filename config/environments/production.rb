@@ -1,6 +1,4 @@
 Rails.application.configure do
-  config.active_storage.default_delivery_method = :proxy
-  config.active_storage.resolve_model_to_route = :cdn_proxy
   # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = false
   # Settings specified here will take precedence over those in config/application.rb.
