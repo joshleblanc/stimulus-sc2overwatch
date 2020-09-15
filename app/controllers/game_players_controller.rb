@@ -95,6 +95,9 @@ class GamePlayersController < ApplicationController
   end
 
   def update
+    p "remote_ip: #{request.remote_ip}"
+    p "ip: #{request.ip}"
+    p "forwarded-for: #{request.env["HTTP_X_FORWARDED_FOR"]}"
     case @game_player.accuse(
         ip: request.remote_ip,
         winner: params[:winner]
