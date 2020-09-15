@@ -4,7 +4,7 @@ class GamesController < ApplicationController
   end
 
   def update
-    case @game.accuse_player(request.ip, params[:player], params[:evidence])
+    case @game.accuse_player(request.remote_ip, params[:player], params[:evidence])
     when :success
       flash[:notice] = "Successfully reported player"
     when :already_voted
