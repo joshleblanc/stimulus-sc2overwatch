@@ -60,7 +60,7 @@ class GamePlayersController < ApplicationController
         player = Player.where(id: data['players_id']).first_or_create(
             id: data['players_id'],
             bnet_url: data['player']['battle_net_url'],
-            server: data['player']['battle_net_url'].split('.')[0].split('//')[1],
+            server: data['player']['server'],
             bnet_id: data['player']['character_link_id'],
             name: data['player']['players_name']
         )
